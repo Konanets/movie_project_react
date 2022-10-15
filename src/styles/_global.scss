@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-family: var(--font-family, sans-serif);
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+  min-height: 100%;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--color-light-dark);
+  overflow-anchor: none;
+}
+
+hr{
+  width: 100%;
+  padding: 0 5%;
+}
+
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--white-color)
+}
+
+
+ul, li, ol {
+  list-style-type: none;
+  padding: 0;
+}
