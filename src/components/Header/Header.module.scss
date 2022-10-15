@@ -1,0 +1,168 @@
+.main_header {
+  height: 65px;
+
+  &_nav {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+
+
+    .wrapper {
+      position: relative;
+      max-width: 1300px;
+      padding: 0 30px;
+      height: 70px;
+      line-height: 70px;
+      display: flex;
+      align-items: center;
+
+      a {
+        color: var(--text-color);
+        font-size: 30px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .nav_links {
+        display: inline-flex;
+
+        li {
+          list-style: none;
+        }
+
+        li a {
+          color: var(--text-color);
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: 500;
+          padding: 9px 15px;
+          border-radius: 5px;
+          transition: all 0.3s ease;
+
+          &hover {
+            background: #3A3B3C;
+          }
+        }
+
+        .mobile_item {
+          display: none;
+        }
+
+        .drop_menu {
+          position: absolute;
+          background: var(--nav-background);
+          width: 180px;
+          line-height: 45px;
+          top: 85px;
+          opacity: 0;
+          visibility: hidden;
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+
+      }
+    }
+  }
+}
+
+main hr {
+  background-color: #000000;
+  height: 2px;
+  width: 98%;
+}
+
+.nav_links li:hover .drop_menu,
+.nav_links li:hover .mega_box {
+  transition: all 0.3s ease;
+  top: 74px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.drop_menu li a {
+  width: 100%;
+  display: block;
+  padding: 0 0 0 15px;
+  font-weight: 400;
+  border-radius: 0;
+}
+
+.mega_box {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+
+  .content {
+    background: var(--nav-background);
+    padding: 25px 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .content .row {
+    line-height: 45px;
+  }
+}
+
+.content .row h1 {
+  border-bottom: 2px var(--color-reverse) solid;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.content .row .mega_links {
+  margin-left: -40px;
+}
+
+.row .mega_links li {
+  padding: 0 20px;
+}
+
+.row .mega_links li a {
+  padding: 0 20px;
+  color: var(--text-color);
+  font-size: 17px;
+  display: block;
+}
+
+.row .mega_links li a:hover {
+  color: var(--text-color);
+  background-color: var(--color-reverse);
+}
+
+.wrapper .btn {
+  color: var(--text-color);
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.wrapper .btn.close_btn {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+
+nav input {
+  display: none;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.mega_links {
+  display: flex;
+  flex-wrap: wrap;
+}

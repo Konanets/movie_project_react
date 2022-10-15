@@ -4,8 +4,9 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 
 import scss from './NavBar.module.scss';
+import {FC} from "react";
 
-const NavBar = () => {
+const NavBar:FC = () => {
 
     const changeTheme=()=>{
 

@@ -1,16 +1,15 @@
 import React from 'react';
 
-import {NavBar} from "./components/NavBar/NavBar";
-
 import './styles/index.sass'
 import {MainLayout} from "./layouts";
 import {Route, Routes} from "react-router-dom";
+import {MainPage} from "./pages";
 
 function App() {
   return (
     <Routes>
         <Route path={''} element={<MainLayout/>}>
-
+            <Route index element={<MainPage/>}></Route>
         </Route>
     </Routes>
   );

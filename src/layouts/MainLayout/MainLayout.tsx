@@ -1,10 +1,14 @@
+import {Outlet} from "react-router-dom";
+
+import {NavBar} from "../../components";
+
 import scss from './MainLayout.module.scss'
-import {NavBar} from "../../components/NavBar/NavBar";
 
 const MainLayout = () => {
     return (
         <div className={scss.container}>
                 <NavBar/>
+                <Outlet/>
         </div>
     );
 };
