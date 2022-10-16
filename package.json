@@ -31,7 +31,8 @@
     "web-vitals": "^2.1.4",
     "axios": "^1.1.2",
     "react-redux": "^8.0.4",
-    "@reduxjs/toolkit": "^1.8.6"
+    "@reduxjs/toolkit": "^1.8.6",
+    "react-hook-form": "^7.37.0"
   },
   "scripts": {
     "start": "react-scripts start",

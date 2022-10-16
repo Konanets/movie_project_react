@@ -9,6 +9,8 @@ const _urls = {
     list: '/list',
     tv: '/tv',
     trending: '/trending',
+    search:'/search',
+    multi:'/multi'
 }
 
 export {

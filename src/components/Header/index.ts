@@ -1,4 +1,5 @@
 export * from './GenreItem/GenreItem'
 export * from './GenreMovieList/GenreMovieList'
 export * from './GenreTvList/GenreTvList'
+export * from './HeaderSearch/HeaderSearch'
 export * from './Header'

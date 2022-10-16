@@ -1,4 +1,4 @@
-import {IGenre} from "../slicesInterfaces/genre.interface";
+import {IGenre} from "../slicesInterfaces";
 
 export interface IGenreItemPros{
     genre:IGenre

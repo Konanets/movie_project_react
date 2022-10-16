@@ -1,5 +1,8 @@
 .main_header {
   height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &_nav {
     position: fixed;
@@ -12,7 +15,6 @@
       max-width: 1300px;
       padding: 0 30px;
       height: 70px;
-      line-height: 70px;
       display: flex;
       align-items: center;
 

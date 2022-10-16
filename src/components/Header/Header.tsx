@@ -2,6 +2,7 @@ import {GenreMovieList} from "./GenreMovieList/GenreMovieList";
 
 import scss from './Header.module.scss'
 import {GenreTvList} from "./GenreTvList/GenreTvList";
+import {HeaderSearch} from "./HeaderSearch/HeaderSearch";
 
 const Header = () => {
     return (
@@ -13,7 +14,9 @@ const Header = () => {
                             <GenreMovieList/>
                             <GenreTvList/>
                         </ul>
+                            <HeaderSearch/>
                     </div>
+
                 </div>
             </header>
             <hr/>
