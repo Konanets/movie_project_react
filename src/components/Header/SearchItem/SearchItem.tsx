@@ -10,7 +10,8 @@ const SearchItem:FC<ISearchItemProps> = ({tape}) => {
     return (
         <div className={scss.search_list_item}>
             <div className={scss.search_item_thumbnail}>
-                <img src={`${pngUrl}${tape.poster_path}`} alt={tape.name}/>
+
+                <img src={ tape.poster_path?`${pngUrl}${tape.poster_path}`:'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'}alt={tape.name}/>
             </div>
             <div className={scss.search_item_info}>
                 <h3>{tape.name}{tape.title}</h3>

@@ -14,7 +14,7 @@ const Header = () => {
                             <GenreMovieList/>
                             <GenreTvList/>
                         </ul>
-                            <HeaderSearch/>
+                        <HeaderSearch/>
                     </div>
 
                 </div>

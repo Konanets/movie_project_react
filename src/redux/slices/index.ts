@@ -1,2 +1,3 @@
 export * from './genre.slice'
-export * from './options.slice'
+export * from './search.slice'
+export * from './movie.slice'

@@ -1,0 +1,41 @@
+.container {
+  height: 450px;
+  width: 100%;
+  background-color: #50cdea;
+
+  h1 {
+    color: var(--white-color);
+  }
+
+  .content {
+    min-width: 400px;
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+
+    img {
+      height: 400px;
+      width: 300px;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+      box-shadow: rgba(var(--gradient-1)) 0px -23px 25px 0px inset, rgba(var(--gradient-1)) 0px -36px 30px 0px inset,
+      rgba(var(--gradient-1)) 0px -79px 40px 0px inset, rgba(var(--gradient-1)) 0px 2px 1px,
+      rgba(var(--gradient-1)) 0px 4px 2px, rgba(var(--gradient-1)) 0px 8px 4px, rgba(var(--gradient-1)) 0px 16px 8px,
+      rgba(var(--gradient-1)) 0px 32px 16px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 400px;
+      z-index: 1;
+      box-shadow: inset 10px 10px 120px #716f6f;
+    }
+  }
+}
+
+

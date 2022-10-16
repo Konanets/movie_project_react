@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../../../hooks";
 
 import scss from './HeaderSearch.module.scss'
-import {optionsAction} from "../../../redux";
+import {searchAction} from "../../../redux";
 import {SearchItem} from "../SearchItem/SearchItem";
 import {checkLimit} from "../../../utils";
 
@@ -13,17 +13,17 @@ const HeaderSearch = () => {
 
     const {register, watch} = useForm<{ search: string }>()
 
-    const {searched} = useAppSelector(state => state.optionsReducer)
+    const {searched} = useAppSelector(state => state.searchReducer)
 
     const dispatch = useAppDispatch()
 
     useEffect(() => {
         if (checkLimit(watch('search'))) {
-            dispatch(optionsAction.getSimilar({
-                name: watch('search')
+            dispatch(searchAction.getSimilar({
+                name: watch('search').trim()
             }))
         } else {
-            dispatch(optionsAction.getSimilar({
+            dispatch(searchAction.getSimilar({
                 name: ''
             }))
         }

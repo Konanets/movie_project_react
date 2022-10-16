@@ -1,20 +1,20 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {CompareType, IOptionsState, ISearched} from "../../interfaces";
+import {CompareType, ISearchState, ISearched} from "../../interfaces";
 import {searchService} from "../../services";
 import {AxiosError} from "axios";
 
-const initialState: IOptionsState = {
+const initialState: ISearchState = {
     searched: []
 }
 
 const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(
-    'optionsSlice/GetSimilar',
+    'searchSlice/GetSimilar',
     async ({name}, {rejectWithValue}) => {
         try {
             if (!name.length) return [];
             const {data} = await searchService.search(name)
-            return data.results.slice(0, 6).filter(tape=>tape.media_type === 'tv' || tape.media_type == 'movie').map((tape: CompareType): ISearched => {
+            return data.results.slice(0, 6).filter(tape=>tape.media_type === 'tv' || tape.media_type === 'movie').map((tape: CompareType): ISearched => {
                     const new_item: ISearched = {
                         id: tape.id,
                         poster_path: tape.poster_path,
@@ -35,7 +35,7 @@ const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(
     }
 )
 
-const optionsSlice = createSlice({
+const searchSlice = createSlice({
     name: 'optionsSLice',
     initialState,
     reducers: {},
@@ -48,11 +48,11 @@ const optionsSlice = createSlice({
 
 
 const {
-    reducer: optionsReducer, actions: {}
-} = optionsSlice
+    reducer: searchReducer, actions: {}
+} = searchSlice
 
-const optionsAction = {
+const searchAction = {
     getSimilar
 }
 
-export {optionsAction, optionsReducer}
+export {searchAction, searchReducer}

@@ -8,7 +8,13 @@
     position: fixed;
     z-index: 99;
     width: 100%;
-
+    background-image: linear-gradient(
+                    -220deg,
+                    rgba(var(--gradient-1)) 0%,
+                    rgba(var(--gradient-2)) 25%,
+                    rgba(var(--gradient-3)) 51%,
+                    rgba(var(--gradient-4)) 100%
+    );
 
     .wrapper {
       position: relative;
@@ -30,21 +36,32 @@
 
         li {
           list-style: none;
-        }
+          h1{
+            color: var(--white-color);
+            font-weight: bold;
+          }
+          span, a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 900;
+            border-radius: 5px;
+            transition: all 0.3s ease;
 
-        li a {
-          color: var(--text-color);
-          text-decoration: none;
-          font-size: 18px;
-          font-weight: 500;
-          padding: 9px 15px;
-          border-radius: 5px;
-          transition: all 0.3s ease;
+            &hover {
+              background: var(--dark-blue-color);
+            }
+          }
 
-          &hover {
-            background: #3A3B3C;
+          span {
+            padding: 45px 15px;
+          }
+
+          a {
+            padding: 9px 15px;
           }
         }
+
 
         .mobile_item {
           display: none;
@@ -76,7 +93,7 @@ main hr {
 .nav_links li:hover .drop_menu,
 .nav_links li:hover .mega_box {
   transition: all 0.3s ease;
-  top: 74px;
+  top: 70px;
   opacity: 1;
   visibility: visible;
 }
@@ -99,7 +116,14 @@ main hr {
   visibility: hidden;
 
   .content {
-    background: var(--nav-background);
+    border-top: 1px solid black;
+    background-image: linear-gradient(
+                    -220deg,
+                    rgba(var(--gradient-1)) 0%,
+                    rgba(var(--gradient-2)) 25%,
+                    rgba(var(--gradient-3)) 51%,
+                    rgba(var(--gradient-4)) 100%
+    );
     padding: 25px 20px;
     display: flex;
     width: 100%;

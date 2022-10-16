@@ -1,7 +1,7 @@
 import {FC, useEffect} from "react";
 
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {genreActions} from "../../../redux/slices";
+import {genreActions} from "../../../redux";
 import {GenreItem} from "../GenreItem/GenreItem";
 
 import scss from '../Header.module.scss'
@@ -21,8 +21,7 @@ const GenreMovieList:FC = () => {
 
     return (
         <li>
-            <a href="#" >All Movie</a>
-            <label htmlFor="showMega" className={scss.mobile_item}>Movie</label>
+            <span>All Movie▼</span>
             <div className={scss.mega_box}>
                 <div className={scss.content}>
                     <div className={scss.row}>

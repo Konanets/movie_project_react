@@ -1,1 +1,1 @@
-export * from './limitedSearch'
+export * from './common'

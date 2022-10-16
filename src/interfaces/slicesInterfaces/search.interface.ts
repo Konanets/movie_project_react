@@ -9,7 +9,7 @@ export interface ISearched {
 }
 
 
-export interface IOptionsState {
+export interface ISearchState {
     searched: ISearched[]
 }
 
