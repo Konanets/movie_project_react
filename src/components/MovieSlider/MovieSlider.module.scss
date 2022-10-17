@@ -1,0 +1,49 @@
+.trending {
+  width: 100%;
+
+  h1 {
+    color: var(--dark-blue-color);
+    margin: 0;
+  }
+
+  &__movies {
+    position: relative;
+    width: calc(100vw - 190px);
+    padding-left: 5%;
+
+
+    :global(.swiper-slide) {
+      min-width: 290px;
+      display: block;
+
+    }
+
+    :global(.swiper-button-prev),
+    :global(.swiper-button-next) {
+      color: var(--white-color);
+      -webkit-text-stroke: 2px #ffffff;
+      transition: opacity 0.5s;
+      z-index: 10;
+
+      &::after {
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  :global(.swiper-button-next) {
+    right: 75px;
+  }
+
+  &__skeleton {
+    background-color: rgb(58, 58, 58);
+    box-shadow: 0 0 15px 4px rgba(58, 58, 58, 0.27);
+  }
+}

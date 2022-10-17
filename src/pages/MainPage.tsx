@@ -2,7 +2,7 @@ import {useEffect} from "react";
 
 import {useAppDispatch} from "../hooks";
 import {movieActions} from "../redux";
-import {MainMovie} from "../components";
+import {MainMovie, MovieSlider} from "../components";
 
 const MainPage = () => {
 
@@ -18,6 +18,8 @@ const MainPage = () => {
     return (
         <main>
             <MainMovie/>
+
+            <MovieSlider/>
         </main>
     );
 };

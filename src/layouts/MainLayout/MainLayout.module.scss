@@ -2,34 +2,21 @@
 .container {
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-columns: 170px auto;
+  display: flex;
+  &__main{
+    width: 100%;
+    margin-left: 170px;
+    display: flex;
+    flex-direction: column;
+  }
 
-  grid-template-rows: 5vh auto;
-
-  grid-template-areas:
-    "nav header"
-    "nav main"
-    "nav main"
-    "nav main";
 }
 
 @media screen and (max-width: 768px){
 
-  .container {
-      grid-template-columns: 120px auto;
+  .container__main {
+    margin-left: 120px;
   }
-}
-
-header{
-  background-color: #0a21a0;
-  grid-area: header;
-}
-
-.main{
-  background-color: yellowgreen;
-  min-height: 60vh;
-  grid-area: main;
 }
 
 

@@ -14,8 +14,20 @@ const initialState: IMovieInitialState = {
 }
 
 
-const getMovies = createAsyncThunk<IMoviesService,void>(
+const getMovies = createAsyncThunk<IMoviesService, void>(
     'movieSlice/getMovies',
+    async (_, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getAll()
+            return data
+        } catch (e) {
+            return rejectWithValue((e as AxiosError).response?.data)
+        }
+    }
+)
+
+const getTrendingMovies = createAsyncThunk<IMoviesService, void>(
+    'movieSlice/getTrendingMovies',
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getAll()
@@ -31,21 +43,28 @@ const movieSlice = createSlice({
     name: 'movieSlice',
     initialState,
     reducers: {},
-    extraReducers:builder => builder
-        .addCase(getMovies.fulfilled,(state, action)=>{
-            state.movies=action.payload.results
-            state.page=action.payload.page
-            state.total_pages=action.payload.total_pages
-            state.total_results=action.payload.total_results
+    extraReducers: builder => builder
+        .addCase(getMovies.fulfilled, (state, action) => {
+            state.movies = action.payload.results
+            state.page = action.payload.page
+            state.total_pages = action.payload.total_pages
+            state.total_results = action.payload.total_results
+        })
+        .addCase(getTrendingMovies.fulfilled, (state, action) => {
+            state.trendingMovies = action.payload.results
+            state.page = action.payload.page
+            state.total_pages = action.payload.total_pages
+            state.total_results = action.payload.total_results
         })
 })
 
 
-const {reducer:movieReducer ,actions:{
+const {
+    reducer: movieReducer, actions: {}
+} = movieSlice
 
-}}=movieSlice
-
-const movieActions={
-    getMovies
+const movieActions = {
+    getMovies,
+    getTrendingMovies
 }
-export {movieActions,movieReducer}
+export {movieActions, movieReducer}

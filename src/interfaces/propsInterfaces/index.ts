@@ -1,2 +1,5 @@
 export * from './genreItemProps.interface'
 export * from './searchItemProps'
+export * from './badgeProps.interface'
+export * from './starsProps.interface'
+export * from './movieCardProps.interface'

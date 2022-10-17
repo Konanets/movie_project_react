@@ -8,8 +8,11 @@ const MainLayout = () => {
     return (
         <div className={scss.container}>
             <NavBar/>
-            <Header/>
+            <div className={scss.container__main}>
+                <Header/>
             <Outlet/>
+            </div>
+
         </div>
     );
 };

@@ -1,10 +1,12 @@
 import {FC} from "react";
 
 import {useAppSelector} from "../../hooks";
-import {randomizer} from "../../utils";
+import {randomizer, truncateString} from "../../utils";
 
 import scss from './MainMovie.module.scss'
 import {pngUrl} from "../../configs";
+import {GenreBadge} from "../GenreBadge/GenreBadge";
+import {StarsRating} from "../StarsRating/StarsRating";
 
 const MainMovie: FC = () => {
 
@@ -18,9 +20,20 @@ const MainMovie: FC = () => {
     if (movie) {
         return (
             <div className={scss.container}>
-            <h1>Your Recommendation</h1>
+                <h1>Our recommendation</h1>
                 <div className={scss.content}>
-                    <img src={`${pngUrl}${movie.poster_path}`}  alt=""/>
+                    <img src={`${pngUrl}${movie.poster_path}`} alt=""/>
+                    <div className={scss.content__info}>
+                        <h1>{movie.title}</h1>
+                        <GenreBadge genresIds={movie.genre_ids}/>
+                        <div>
+                            <h2>Overview</h2>
+                            <p>{truncateString(movie.overview, 150)}</p>
+                        </div>
+                        <StarsRating rating={movie.vote_average}/>
+                        <p>Release data: {movie.release_date}</p>
+                        <a className={scss.square_btn} href={''}>More Info</a>
+                    </div>
                 </div>
             </div>
         );

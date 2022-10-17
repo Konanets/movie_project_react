@@ -1,35 +1,36 @@
 import {useForm} from "react-hook-form";
-import {useEffect} from "react";
+import React from "react";
 
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-
-import scss from './HeaderSearch.module.scss'
 import {searchAction} from "../../../redux";
 import {SearchItem} from "../SearchItem/SearchItem";
 import {checkLimit} from "../../../utils";
 
+import scss from './HeaderSearch.module.scss'
+
+
 
 const HeaderSearch = () => {
 
-    const {register, watch} = useForm<{ search: string }>()
+    const {register} = useForm<{ search: string }>()
 
     const {searched} = useAppSelector(state => state.searchReducer)
 
     const dispatch = useAppDispatch()
 
-    useEffect(() => {
-        if (checkLimit(watch('search'))) {
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        if (checkLimit(e.target.value)) {
             dispatch(searchAction.getSimilar({
-                name: watch('search').trim()
+                name: e.target.value.trim()
             }))
         } else {
             dispatch(searchAction.getSimilar({
                 name: ''
             }))
         }
-
-
-    }, [watch('search')])
+    }
 
     return (
         <div className={scss.search_container}>
@@ -39,6 +40,7 @@ const HeaderSearch = () => {
                     className={scss.form_control}
                     placeholder="Search Movie Title ..."
                     {...register('search')}
+                    onChange={onChange}
                 />
 
                 <div className={scss.search_list} id="search-list">

@@ -1,3 +1,7 @@
 export * from './Header/index'
 export * from './NavBar/NavBar'
 export * from './MainMovie/MainMovie'
+export * from './GenreBadge/GenreBadge'
+export * from './StarsRating/StarsRating'
+export * from './MovieSlider/MovieSlider'
+export * from './MovieListCard/MovieListCard'

@@ -21,7 +21,10 @@ body {
   overflow-anchor: none;
 }
 
-
+main{
+  display: flex;
+  flex-direction: column;
+}
 
 
 a {

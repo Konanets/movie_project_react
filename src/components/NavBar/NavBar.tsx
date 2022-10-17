@@ -13,7 +13,7 @@ const NavBar:FC = () => {
     }
 
     return (
-        <nav>
+        <nav className={scss.nav}>
             <div className={scss.side_navbar}>
                  <div className={scss.side_navbar_info}>
 

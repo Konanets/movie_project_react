@@ -4,6 +4,7 @@ import './styles/index.sass'
 import {MainLayout} from "./layouts";
 import {Route, Routes} from "react-router-dom";
 import {MainPage} from "./pages";
+import {MovieSlider} from "./components";
 
 function App() {
   return (
