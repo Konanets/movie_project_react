@@ -1,0 +1,38 @@
+.scene {
+  width: calc(100vw - 184.9px);
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    color: #ffffff;
+    transition: opacity 0.5s;
+
+    &::after {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  :global(.swiper-pagination-bullet) {
+    background-color: white;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    padding: 5px;
+  }
+
+  :global(.swiper-pagination) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

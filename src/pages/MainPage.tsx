@@ -2,7 +2,7 @@ import {useEffect} from "react";
 
 import {useAppDispatch} from "../hooks";
 import {movieActions} from "../redux";
-import {MainMovie, MovieSlider} from "../components";
+import {BigMovieSlider, MainMovie, MovieSlider} from "../components";
 
 const MainPage = () => {
 
@@ -17,8 +17,8 @@ const MainPage = () => {
 
     return (
         <main>
+            <BigMovieSlider/>
             <MainMovie/>
-
             <MovieSlider/>
         </main>
     );

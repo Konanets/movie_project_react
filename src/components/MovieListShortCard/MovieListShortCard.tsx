@@ -2,13 +2,13 @@ import {FC} from "react";
 
 import {IMovieCardProps} from "../../interfaces";
 
-import scss from './MovieListCard.module.scss'
+import scss from './MovieListShortCard.module.scss'
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {Link} from "react-router-dom";
 import {pngUrl} from "../../configs";
 import {StarsRating} from "../StarsRating/StarsRating";
 
-const MovieListCard:FC<IMovieCardProps> = ({movie}) => {
+const MovieListShortCard:FC<IMovieCardProps> = ({movie}) => {
     return (
         <div className={scss.card}>
             <img src={pngUrl+movie.poster_path} alt={movie.title}/>
@@ -29,4 +29,4 @@ const MovieListCard:FC<IMovieCardProps> = ({movie}) => {
     );
 };
 
-export {MovieListCard};
+export {MovieListShortCard};

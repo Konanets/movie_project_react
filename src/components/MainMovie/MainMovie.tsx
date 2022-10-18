@@ -7,6 +7,7 @@ import scss from './MainMovie.module.scss'
 import {pngUrl} from "../../configs";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {StarsRating} from "../StarsRating/StarsRating";
+import {Link} from "react-router-dom";
 
 const MainMovie: FC = () => {
 
@@ -32,7 +33,7 @@ const MainMovie: FC = () => {
                         </div>
                         <StarsRating rating={movie.vote_average}/>
                         <p>Release data: {movie.release_date}</p>
-                        <a className={scss.square_btn} href={''}>More Info</a>
+                        <Link className={scss.square_btn} to={''}>More Info</Link>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 import scss from './MovieSlider.module.scss'
-import {MovieListCard} from "../MovieListCard/MovieListCard";
+import {MovieListShortCard} from "../MovieListShortCard/MovieListShortCard";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
 
@@ -38,7 +38,7 @@ const MovieSlider: FC = () => {
 
 
                     {trendingMovies.map(movie => <SwiperSlide key={movie.id}>
-                        <MovieListCard key={movie.id} movie={movie}/>
+                        <MovieListShortCard key={movie.id} movie={movie}/>
                     </SwiperSlide>)}
 
                 </Swiper>
