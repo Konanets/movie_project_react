@@ -1,0 +1,19 @@
+.movie {
+  &__container{
+    width: 95%;
+    margin: 0 auto;
+  }
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+}
+

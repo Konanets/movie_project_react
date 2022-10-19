@@ -1,3 +1,4 @@
-export * from './propsInterfaces/index'
-export * from './slicesInterfaces/index'
-export * from './serviceInterfaces/index'
+export * from './search.interface'
+export * from './tv.interface'
+export * from './movie.interface'
+export * from './genre.interface'

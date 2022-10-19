@@ -1,3 +1,6 @@
+import {IResultsMovie} from "./movie.interface";
+import {IResultsTv} from "./tv.interface";
+
 export interface ISearched {
     id: number,
     poster_path: string,
@@ -13,4 +16,9 @@ export interface ISearchState {
     searched: ISearched[]
 }
 
+export type CompareType=IResultsMovie&IResultsTv
+
+export interface simpleSearchRes{
+    results:CompareType[]
+}
 

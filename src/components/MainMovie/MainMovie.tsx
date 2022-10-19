@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, memo} from "react";
 
 import {useAppSelector} from "../../hooks";
 import {randomizer, truncateString} from "../../utils";
@@ -9,37 +9,51 @@ import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {StarsRating} from "../StarsRating/StarsRating";
 import {Link} from "react-router-dom";
 
-const MainMovie: FC = () => {
 
-    const {movies} = useAppSelector(state => state.movieReducer)
+interface IMainMovieProps {
+    id: number,
+    title: string,
+    poster_path: string,
+    genre_ids: number[],
+    overview: string,
+    vote_average: number,
+    release_date: string
+}
 
-    const movie = movies[randomizer(movies.length)]
+const MainMovie: FC<IMainMovieProps> = memo(({
+                                                 id,
+                                                 genre_ids,
+                                                 overview,
+                                                 poster_path,
+                                                 title,
+                                                 release_date,
+                                                 vote_average
+                                             }) => {
 
-    console.log(movie)
+
+    console.log('mainMovie')
 
 
-    if (movie) {
-        return (
-            <div className={scss.container}>
-                <h1>Our recommendation</h1>
-                <div className={scss.content}>
-                    <img src={`${pngUrl}${movie.poster_path}`} alt=""/>
-                    <div className={scss.content__info}>
-                        <h1>{movie.title}</h1>
-                        <GenreBadge genresIds={movie.genre_ids}/>
-                        <div>
-                            <h2>Overview</h2>
-                            <p>{truncateString(movie.overview, 150)}</p>
-                        </div>
-                        <StarsRating rating={movie.vote_average}/>
-                        <p>Release data: {movie.release_date}</p>
-                        <Link className={scss.square_btn} to={''}>More Info</Link>
+    return (
+
+        <div className={scss.container}>
+            <h1>Our recommendation</h1>
+            <div className={scss.content}>
+                <img src={`${pngUrl}${poster_path}`} alt=""/>
+                <div className={scss.content__info}>
+                    <h1>{title}</h1>
+                    <GenreBadge genresIds={genre_ids}/>
+                    <div>
+                        <h2>Overview</h2>
+                        <p>{truncateString(overview, 150)}</p>
                     </div>
+                    <StarsRating rating={vote_average} color={"white"}/>
+                    <p>Release data: {release_date}</p>
+                    <Link className={scss.square_btn} to={''}>More Info</Link>
                 </div>
             </div>
-        );
-    }
-    return null
-};
+        </div>
+    );
+})
 
 export {MainMovie};

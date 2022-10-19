@@ -20,10 +20,20 @@ export interface IResultsMovie {
 export interface IMovieInitialState {
     page: number,
     movies: IResultsMovie[],
-    trendingMovies: IResultsMovie[]
+    nowPlayingMovies:IResultsMovie[],
+    trendingMovies: IResultsMovie[],
     total_results: number,
-    total_pages: number
+    total_pages: number,
+    current_page:number,
 }
+
+export interface IMoviesService{
+    page:number,
+    results:IResultsMovie[],
+    total_results:number,
+    total_pages:number
+}
+
 
 
 

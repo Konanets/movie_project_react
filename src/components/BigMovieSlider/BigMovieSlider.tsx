@@ -1,54 +1,46 @@
-import {FC} from "react";
+import {FC, memo, useEffect} from "react";
 import {Autoplay, Pagination, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import {useAppSelector} from "../../hooks";
+import {MovieListBigCard} from "../MovieListBigCard/MovieListBigCard";
+import {IResultsMovie} from "../../interfaces";
 
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 import scss from './BigMovieSlider.module.scss'
-import {MovieListBigCard} from "../MovieListBigCard/MovieListBigCard";
 
 
+interface IBigMovieSliderProps {
+    movies: IResultsMovie[]
+}
 
+const BigMovieSlider: FC<IBigMovieSliderProps> = memo(
+    ({movies}) => {
+        const shortMovieList = movies.slice(1, 8)
+        console.log('BigMovie')
+        return (
+            <div className={scss.scene}>
+                <div>
+                    <Swiper
+                        slidesPerView={1}
+                        loop={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation, Autoplay]}>
 
-const BigMovieSlider: FC = () => {
+                        {
+                            shortMovieList && shortMovieList.map(movie => <SwiperSlide key={movie.id}><MovieListBigCard
+                                movie={movie}/></SwiperSlide>)
+                        }
 
-
-
-const {movies}=useAppSelector(state => state.movieReducer)
-
-
-
-    const shotMovieList=movies.slice(1,7)
-
-
-
-    return (
-        <div className={scss.scene}>
-            <div>
-                <Swiper
-                    slidesPerView={1}
-                    loop={true}
-                    autoplay={{
-                        delay: 3500,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation, Autoplay]}
-                >
-
-                    {
-                        shotMovieList&&shotMovieList.map(movie=><SwiperSlide key={movie.id}><MovieListBigCard movie={movie}/></SwiperSlide>)
-                    }
-
-                </Swiper>
+                    </Swiper>
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+)
 
 export {BigMovieSlider};

@@ -10,3 +10,7 @@ export interface IGenresState {
     status: string | null,
     error: string | null
 }
+
+export interface IGenresService {
+    genres: IGenre[]
+}

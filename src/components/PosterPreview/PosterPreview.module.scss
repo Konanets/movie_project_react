@@ -1,0 +1,17 @@
+.poster {
+  height: 350px;
+  width: 250px;
+  position: relative;
+
+  &__badges {
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+  }
+}

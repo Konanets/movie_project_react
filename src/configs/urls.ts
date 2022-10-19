@@ -11,7 +11,8 @@ const _urls = {
     trending: '/trending',
     search:'/search',
     multi:'/multi',
-    day:'/day'
+    day:'/day',
+    now_playing:'/now_playing'
 }
 
 export {

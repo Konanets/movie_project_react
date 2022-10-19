@@ -1,8 +1,11 @@
 import {FC} from "react";
 import {Link} from "react-router-dom";
 
-import {IGenreItemPros} from "../../../interfaces";
+import {IGenre} from "../../../interfaces";
 
+export interface IGenreItemPros{
+    genre:IGenre
+}
 
 
 const GenreItem:FC<IGenreItemPros> = ({genre}) => {

@@ -1,9 +1,14 @@
 import {FC} from "react";
 
-import {ISearchItemProps} from "../../../interfaces";
+import {pngUrl} from "../../../configs";
+import {ISearched} from "../../../interfaces";
 
 import scss from '../HeaderSearch/HeaderSearch.module.scss'
-import {pngUrl} from "../../../configs";
+
+
+export interface ISearchItemProps{
+    tape:ISearched
+}
 
 
 const SearchItem:FC<ISearchItemProps> = ({tape}) => {
