@@ -17,7 +17,7 @@ interface IBigMovieSliderProps {
 
 const BigMovieSlider: FC<IBigMovieSliderProps> = memo(
     ({movies}) => {
-        const shortMovieList = movies.slice(1, 8)
+        const shortMovieList = movies.slice(0, 8)
         console.log('BigMovie')
         return (
             <div className={scss.scene}>

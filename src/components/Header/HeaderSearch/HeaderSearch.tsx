@@ -12,7 +12,7 @@ import scss from './HeaderSearch.module.scss'
 
 const HeaderSearch = () => {
 
-    const {register} = useForm<{ search: string }>()
+    const {register,reset} = useForm<{ search: string }>()
 
     const {searched} = useAppSelector(state => state.searchReducer)
 
@@ -44,7 +44,7 @@ const HeaderSearch = () => {
                 />
 
                 <div className={scss.search_list} id="search-list">
-                    {searched.map(tape => <SearchItem key={tape.id} tape={tape}/>)}
+                    {searched.map(tape => <SearchItem key={tape.id} tape={tape} reset={reset}/>)}
                 </div>
             </form>
         </div>

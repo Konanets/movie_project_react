@@ -12,7 +12,9 @@ const _urls = {
     search:'/search',
     multi:'/multi',
     day:'/day',
-    now_playing:'/now_playing'
+    now_playing:'/now_playing',
+    videos:'/videos',
+    similar:'/similar'
 }
 
 export {

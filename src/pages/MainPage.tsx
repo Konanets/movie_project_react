@@ -36,7 +36,7 @@ const MainPage: FC = () => {
                 </>
             }
             {
-                trendingMovies && <MovieSlider movie={trendingMovies}/>
+                trendingMovies && <MovieSlider movie={trendingMovies} categoryName={'Trending'}/>
             }
 
 

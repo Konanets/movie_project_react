@@ -1,19 +1,29 @@
 .movie {
-  &__container{
+  &__container {
     width: 95%;
     margin: 0 auto;
+    h1{
+      color: white;
+    }
   }
+
   &__list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  &__pagination{
+
+  &__pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 25px;
+
+    :global(.MuiPaginationItem-root) {
+      background-color: white;
+    }
+
   }
 }
 

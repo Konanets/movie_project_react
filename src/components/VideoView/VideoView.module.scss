@@ -1,0 +1,32 @@
+.video {
+  margin: 5rem;
+  max-width: 90%;
+  h2{
+    color: white;
+    font-size: 4rem;
+    margin: 15px;
+  }
+}
+
+.trailer {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+

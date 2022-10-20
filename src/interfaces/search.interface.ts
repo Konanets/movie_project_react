@@ -13,7 +13,11 @@ export interface ISearched {
 
 
 export interface ISearchState {
-    searched: ISearched[]
+    searched: ISearched[],
+    genresSelected:number[],
+    sortByPopularity:'popularity.asc'|'popularity.desc'|'',
+    sortByReleaseDate:'release_date.asc'|'release_date.desc'|'',
+    year:number|null,
 }
 
 export type CompareType=IResultsMovie&IResultsTv

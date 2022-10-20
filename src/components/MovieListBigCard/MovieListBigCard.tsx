@@ -1,4 +1,5 @@
 import {FC} from "react";
+import {Link} from "react-router-dom";
 
 import {pngUrl} from "../../configs";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
@@ -6,6 +7,7 @@ import {StarsRating} from "../StarsRating/StarsRating";
 import {truncateString} from "../../utils";
 
 import scss from './MovieListBigCard.module.scss'
+
 
 interface ICardsProps {
     movie: {
@@ -21,8 +23,8 @@ interface ICardsProps {
     }
 }
 
-
 const MovieListBigCard: FC<ICardsProps> = ({movie}) => {
+
     return (
         <div className={scss.bigCard__background}
              style={{backgroundColor: "blue", backgroundImage: `url(${pngUrl + movie.backdrop_path})`}}>
@@ -34,7 +36,7 @@ const MovieListBigCard: FC<ICardsProps> = ({movie}) => {
                     <p>Release data: {movie.release_date}</p>
                     <p>Movie Rating: {movie.vote_average}</p>
                     <p>{truncateString(movie.overview,150)}</p>
-                     <a className={scss.square_btn} href={''}>More Info</a>
+                     <Link className={scss.square_btn} to={`/movie/${movie.id}`}>More Info</Link>
                 </div>
             </div>
         </div>

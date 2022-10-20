@@ -1,11 +1,9 @@
-import {FC, memo, useEffect} from "react";
+import {FC, memo} from "react";
 
 import {Autoplay, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 
 import {MovieListShortCard} from "../MovieListShortCard/MovieListShortCard";
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {movieActions} from "../../redux";
 import {IResultsMovie} from "../../interfaces";
 
 import 'swiper/scss'
@@ -15,18 +13,15 @@ import scss from './MovieSlider.module.scss'
 
 
 interface IMovieSliderProps {
-    movie: IResultsMovie[]
+    categoryName: string,
+    movie: IResultsMovie[],
 }
 
 const MovieSlider: FC<IMovieSliderProps> = memo(
-    ({movie}) => {
-
-
-        console.log('movieSlider')
-
+    ({movie, categoryName}) => {
         return (
             <div className={scss.trending}>
-                <h1>Trending</h1>
+                <h1>{categoryName}</h1>
                 <div className={scss.trending__movies}>
                     <Swiper
                         slidesPerView={5}

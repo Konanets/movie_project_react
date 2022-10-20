@@ -5,7 +5,11 @@ import {searchService} from "../../services";
 import {AxiosError} from "axios";
 
 const initialState: ISearchState = {
-    searched: []
+    searched: [],
+    genresSelected:[],
+    sortByPopularity:'',
+    sortByReleaseDate:'',
+    year:null
 }
 
 const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(
@@ -38,7 +42,11 @@ const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(
 const searchSlice = createSlice({
     name: 'optionsSLice',
     initialState,
-    reducers: {},
+    reducers: {
+        resetHeaderSearch:(state)=>{
+            state.searched=[]
+        }
+    },
     extraReducers: builder => builder
         .addCase(getSimilar.fulfilled, (state, action) => {
             console.log(action.payload)
@@ -48,11 +56,14 @@ const searchSlice = createSlice({
 
 
 const {
-    reducer: searchReducer, actions: {}
+    reducer: searchReducer, actions: {
+        resetHeaderSearch
+    }
 } = searchSlice
 
 const searchAction = {
-    getSimilar
+    getSimilar,
+    resetHeaderSearch
 }
 
 export {searchAction, searchReducer}

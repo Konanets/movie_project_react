@@ -49,7 +49,7 @@ const MainMovie: FC<IMainMovieProps> = memo(({
                     </div>
                     <StarsRating rating={vote_average} color={"white"}/>
                     <p>Release data: {release_date}</p>
-                    <Link className={scss.square_btn} to={''}>More Info</Link>
+                    <Link className={scss.square_btn} to={`/movie/${id}`}>More Info</Link>
                 </div>
             </div>
         </div>

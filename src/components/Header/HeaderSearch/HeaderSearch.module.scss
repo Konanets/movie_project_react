@@ -70,7 +70,9 @@
     -webkit-transition: background-color 200ms ease;
     -o-transition: background-color 200ms ease;
     transition: background-color 200ms ease;
-
+    p{
+      color: white;
+    }
     &:Hover {
       background-color: #1f1f1f;
     }

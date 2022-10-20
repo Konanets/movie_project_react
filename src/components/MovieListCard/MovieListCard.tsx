@@ -23,7 +23,7 @@ export interface ICardsProps {
 
 const MovieListCard: FC<ICardsProps> = ({movie}) => {
     return (
-        <Link to={''}>
+        <Link to={`/movie/${movie.id}`}>
             <div className={scss.card}>
                 <PosterPreview alt={movie.title} genre_ids={movie.genre_ids} url={movie.poster_path}/>
                 <div className={scss.card__info}>

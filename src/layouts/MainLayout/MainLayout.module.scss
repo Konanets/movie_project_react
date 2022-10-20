@@ -3,16 +3,18 @@
   height: 100%;
   width: 100%;
   display: flex;
-  &__main{
+
+  &__main {
     width: 100%;
     margin-left: 170px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to top, #10b589 0, #50cdea 100%) no-repeat;
   }
 
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
   .container__main {
     margin-left: 120px;

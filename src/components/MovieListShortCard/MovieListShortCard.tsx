@@ -27,7 +27,7 @@ const MovieListShortCard: FC<ICardsProps> = memo(
         return (
             <div className={scss.card}>
                 <img src={pngUrl + movie.poster_path} alt={movie.title}/>
-                <Link to={''}>
+                <Link to={`/movie/${movie.id}`}>
                     <div className={scss.card__content}>
                         <div className={scss.card__content__banges}><GenreBadge genresIds={movie.genre_ids}/></div>
                         <div className={scss.card__content__contrast}>
@@ -35,6 +35,7 @@ const MovieListShortCard: FC<ICardsProps> = memo(
                         <div className={scss.card__content__info}>
                             <h2>{movie.title}</h2>
                             <p>Release data:{movie.release_date}</p>
+                            <p>Rating: {movie.vote_average}</p>
                             <StarsRating rating={movie.vote_average} color={"white"}/>
                         </div>
                     </div>
