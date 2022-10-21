@@ -1,0 +1,112 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    font-size: 36px;
+    color: white;
+    margin-left: 15px;
+    margin-bottom: 8px;
+  }
+
+  .btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0.6em;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  &__select {
+    &__label{
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      padding-left: 10px;
+    }
+    width: 200px;
+    padding: 10px 20px;
+    background: #001739;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    margin-left: 15px;
+  }
+
+  &__check_box {
+
+    label {
+      display: flex;
+      border: solid 2px limegreen;
+      border-radius: 15px;
+      width: 120px;
+      height: 50px;
+      margin: 10px;
+      color: limegreen;
+      background-color: white;
+      text-align: center;
+      line-height: 80px;
+      float: left;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease-in-out;
+
+    }
+
+    label img {
+      width: 20px;
+      margin-right: 5px;
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+    input:checked + label {
+      transition: all 0.5s ease-in-out;
+      border: solid 2px dodgerblue;
+      color: white;
+      background-color: dodgerblue;
+
+    }
+
+    label:hover {
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      border-radius: 15px;
+      width: 100px;
+      height: 40px;
+      margin: 30px 10px 10px;
+      float: left;
+
+    }
+
+    input[type="submit"]:hover {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+
+    }
+
+  }
+}
+
+
+
+
+
+

@@ -26,7 +26,11 @@ const MovieListShortCard: FC<ICardsProps> = memo(
         console.log('shortCard')
         return (
             <div className={scss.card}>
-                <img src={pngUrl + movie.poster_path} alt={movie.title}/>
+                <img
+                    src={movie.poster_path
+                        ? pngUrl + movie.poster_path
+                        : 'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'}
+                    alt={movie.title}/>
                 <Link to={`/movie/${movie.id}`}>
                     <div className={scss.card__content}>
                         <div className={scss.card__content__banges}><GenreBadge genresIds={movie.genre_ids}/></div>

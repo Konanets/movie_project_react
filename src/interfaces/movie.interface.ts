@@ -24,7 +24,7 @@ export interface IMovieInitialState {
     trendingMovies: IResultsMovie[],
     total_results: number,
     total_pages: number,
-    current_page: number,
+    currentPage: number,
 }
 
 export interface IMoviesService {

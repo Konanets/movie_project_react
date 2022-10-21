@@ -4,6 +4,7 @@ import {baseURL, token} from "../configs";
 
 export type AxiosRes<T> = Promise<AxiosResponse<T>>
 
+
 const axiosInstance = axios.create({
     baseURL,
     headers: {

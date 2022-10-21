@@ -42,7 +42,8 @@ const MovieInfo: FC<IMovieInfo> = ({
     return (
         <div className={scss.movie} style={{backgroundImage: `url(${pngUrl + backdrop_path})`}}>
             <div className={scss.movie__info}>
-                <img src={pngUrl + poster_path} alt={title}/>
+                <img src={poster_path?pngUrl + poster_path
+                    :'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'} alt={title}/>
                 <div className={scss.movie__info__description}>
                     <span>
                        <h1>{title}</h1>

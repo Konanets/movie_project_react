@@ -10,23 +10,28 @@ import scss from './MovieList.module.scss'
 
 const MovieList: FC = () => {
 
-    const {movies, current_page, total_pages} = useAppSelector(state => state.movieReducer)
+    const {movies, currentPage, total_pages} = useAppSelector(state => state.movieReducer)
+    const {genresSelected, sortBy} = useAppSelector(state => state.searchReducer)
 
     const dispatch = useAppDispatch()
 
 
     useEffect(() => {
-        dispatch(movieActions.getMovies({current_page}))
+        console.log(genresSelected)
+        dispatch(movieActions.getMovies({currentPage, genresSelected, sortBy}))
+
+
         return () => {
             dispatch(movieActions.resetPage())
         }
-    }, [dispatch])
+    }, [dispatch, genresSelected, sortBy])
 
 
     return (
         <div className={scss.movie__container}>
             <h1>Movie List</h1>
             <div className={scss.movie__list}>
+                {!movies.length && <h1>No such movies were found</h1>}
                 {movies.map((movie) => <MovieListCard key={movie.id} movie={movie}/>)}
             </div>
             <Pagination
@@ -34,12 +39,11 @@ const MovieList: FC = () => {
                 color={"standard"}
                 count={total_pages}
                 variant="outlined"
-                page={current_page}
+                page={currentPage}
                 shape="rounded"
-                onChange={(_, current_page) => {
-                    dispatch(movieActions.setPage(current_page))
-                    dispatch(movieActions.getMovies({current_page}))
-                    console.log(current_page)
+                onChange={(_, currentPage) => {
+                    dispatch(movieActions.setPage(currentPage))
+                    dispatch(movieActions.getMovies({currentPage, genresSelected, sortBy}))
                 }}
             />
         </div>

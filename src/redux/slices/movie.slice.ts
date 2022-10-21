@@ -10,17 +10,21 @@ const initialState: IMovieInitialState = {
     nowPlayingMovies: [],
     movies: [],
     page: 1,
-    current_page: 1,
+    currentPage: 1,
     total_results: 0,
     total_pages: 500,
 }
 
 
-const getMovies = createAsyncThunk<IMoviesService, { current_page: number }>(
+const getMovies = createAsyncThunk<IMoviesService, {
+    currentPage: number ,
+    genresSelected:string,
+    sortBy:string
+}>(
     'movieSlice/getMovies',
-    async ({current_page}, {rejectWithValue}) => {
+    async ({currentPage,sortBy,genresSelected}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getAll(current_page)
+            const {data} = await movieService.getAll(currentPage,sortBy,genresSelected)
             return data
         } catch (e) {
             return rejectWithValue((e as AxiosError).message)
@@ -59,15 +63,20 @@ const movieSlice = createSlice({
     initialState,
     reducers: {
         resetPage: (state) => {
-            state.current_page = 0
+            state.currentPage = 1
         },
         setPage: (state, action: PayloadAction<number>) => {
-            state.current_page = action.payload
+            state.currentPage = action.payload
         }
     },
     extraReducers: builder => builder
         .addCase(getMovies.fulfilled, (state, action) => {
             state.movies = action.payload.results
+            if(action.payload.total_pages<=500){
+                state.total_pages=action.payload.total_pages
+            }else{
+                state.total_pages=500
+            }
         })
         .addCase(getTrendingMovies.fulfilled, (state, action) => {
             state.trendingMovies = action.payload.results

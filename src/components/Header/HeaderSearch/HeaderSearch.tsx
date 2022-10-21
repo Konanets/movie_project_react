@@ -25,11 +25,9 @@ const HeaderSearch = () => {
             dispatch(searchAction.getSimilar({
                 name: e.target.value.trim()
             }))
-        } else {
-            dispatch(searchAction.getSimilar({
-                name: ''
-            }))
         }
+            dispatch(searchAction.resetHeaderSearch())
+
     }
 
     return (

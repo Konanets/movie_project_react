@@ -9,7 +9,6 @@ const MainLayout = () => {
         <div className={scss.container}>
             <NavBar/>
             <div className={scss.container__main}>
-                <Header/>
             <Outlet/>
             </div>
 

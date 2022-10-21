@@ -16,7 +16,6 @@ const GenreMovieList:FC = () => {
 
     useEffect(() => {
         dispatch(genreActions.getMovieGenes())
-        console.log(movieGenres)
     }, [])
 
     return (

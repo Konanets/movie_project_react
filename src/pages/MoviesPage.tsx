@@ -1,10 +1,11 @@
 import {FC} from "react";
-import {MovieFilter} from "../components";
+import {MovieFilter, MovieList} from "../components";
 
 const MoviesPage:FC = () => {
     return (
         <>
             <MovieFilter/>
+            <MovieList/>
         </>
     );
 };

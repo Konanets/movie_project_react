@@ -1,6 +1,6 @@
 import {FC, useEffect} from "react";
 
-import {BigMovieSlider, MainMovie, MovieList, MovieSlider} from "../components";
+import {BigMovieSlider, Header, MainMovie, MovieList, MovieSlider} from "../components";
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {movieActions} from "../redux";
 
@@ -17,13 +17,17 @@ const MainPage: FC = () => {
     useEffect(() => {
         dispatch(movieActions.getNowPlaying())
         dispatch(movieActions.getTrendingMovies())
-
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }, [dispatch])
 
     return (
         <main>
             {playingMovie &&
                 <>
+                    <Header/>
                     <BigMovieSlider movies={nowPlayingMovies}/>
                     <MainMovie
                         id={playingMovie.id}

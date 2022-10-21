@@ -1,6 +1,7 @@
 import {IResultsMovie} from "./movie.interface";
 import {IResultsTv} from "./tv.interface";
 
+
 export interface ISearched {
     id: number,
     poster_path: string,
@@ -14,15 +15,18 @@ export interface ISearched {
 
 export interface ISearchState {
     searched: ISearched[],
-    genresSelected:number[],
-    sortByPopularity:'popularity.asc'|'popularity.desc'|'',
-    sortByReleaseDate:'release_date.asc'|'release_date.desc'|'',
-    year:number|null,
+    genresSelected: string,
+    sortBy: 'popularity.asc' | 'popularity.desc' | 'release_date.asc' | 'release_date.desc' ,
+    year: number | null,
 }
 
-export type CompareType=IResultsMovie&IResultsTv
+export type CompareType = IResultsMovie & IResultsTv
 
-export interface simpleSearchRes{
-    results:CompareType[]
+export interface simpleSearchRes {
+    results: CompareType[]
 }
 
+export interface IMovieFilter {
+    genresSelected: string[]
+    sortBy: 'popularity.asc' | 'popularity.desc' | 'release_date.asc' | 'release_date.desc',
+}
