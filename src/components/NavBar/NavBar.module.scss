@@ -1,10 +1,11 @@
 .nav {
   height: 100vh;
-  hr{
-  color: white;
-  width: 100%;
-  padding: 0 5%;
-}
+
+  hr {
+    color: white;
+    width: 100%;
+    padding: 0 5%;
+  }
 }
 
 .side_navbar {
@@ -12,7 +13,10 @@
   z-index: 1;
   height: 100vh;
   width: 170px;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), var(--bg-image);
+  background-image: linear-gradient(to bottom, var(--nav-gradiant-1), var(--nav-gradiant-2)), var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &_info {
     height: inherit;
@@ -35,7 +39,7 @@
   &_logo {
     height: 55px;
     width: 55px;
-    background-color: blue;
+    background-color: #ffffff;
     background: var(--logo);
     background-size: cover;
     background-repeat: no-repeat;
@@ -78,7 +82,7 @@
 .label {
   width: 60px;
   height: 26px;
-  background-color: var(--toggle-bgr);
+  background-color: white;
   display: flex;
   border-radius: 50px;
   align-items: center;
@@ -91,7 +95,7 @@
 .ball {
   width: 20px;
   height: 20px;
-  background-color: var(--dark-blue-color);
+  background-color: #040b28;
   position: absolute;
   top: 2px;
   left: 2px;
@@ -116,10 +120,10 @@
   margin: 20% 20%;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
-  .side_navbar  {
-      width: 120px;
+  .side_navbar {
+    width: 120px;
   }
 }
 

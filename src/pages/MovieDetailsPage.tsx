@@ -9,7 +9,7 @@ const MovieDetailsPage = () => {
     const {id} = useParams<{ id: string }>()
 
     const [movie, setMovie] = useState<IMovie>()
-    const [video, setVideo] = useState<IVideos>()
+    const [video, setVideo] = useState<IVideos|null>(null)
     const [similar, setSimilar] = useState<IResultsMovie[]>()
 
     useEffect(() => {
@@ -19,13 +19,13 @@ const MovieDetailsPage = () => {
             })
             movieService.getVideosById(id).then(({data}) => {
                 setVideo(data)
-            })
+            }).catch(reason => reason)
             movieService.getSimilarMovies(id).then(({data})=>{
                 setSimilar(data.results)
             })
         }
     }, [id])
-    if (!movie||!video||!similar) {
+    if (!movie) {
         return <div>Loading......</div>
     }
 
@@ -43,7 +43,7 @@ const MovieDetailsPage = () => {
                 revenue={movie.revenue}
                 vote_average={movie.vote_average}
                 overview={movie.overview}/>
-            {video.results.length>0 && <VideoView url={video.results[0].key}/>}
+            {!!video && <VideoView url={video.results[0].key}/>}
             {similar&&<MovieSlider categoryName={'Similar movies'} movie={similar}/>}
         </>
     );

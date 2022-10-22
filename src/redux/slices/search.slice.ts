@@ -8,7 +8,7 @@ const initialState: ISearchState = {
     searched: [],
     genresSelected: 'all',
     sortBy: 'popularity.desc',
-    year: null
+    year: null,
 }
 
 const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(

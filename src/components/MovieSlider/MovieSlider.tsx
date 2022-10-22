@@ -31,6 +31,12 @@ const MovieSlider: FC<IMovieSliderProps> = memo(
                         autoplay={{
                             delay: 2500,
                         }}
+                        onClick={() => {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }}
                         modules={[Navigation, Autoplay]}>
 
 

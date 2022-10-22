@@ -2,7 +2,8 @@
   &__container {
     width: 95%;
     margin: 0 auto;
-    h1{
+
+    h1 {
       color: white;
     }
   }
@@ -22,6 +23,18 @@
 
     :global(.MuiPaginationItem-root) {
       background-color: white;
+
+      &:hover {
+        background-color: #9d9595;
+      }
+    }
+
+    :global(.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected) {
+      background-color: #9d9595;
+
+      &:hover {
+        background-color: white;
+      }
     }
 
   }

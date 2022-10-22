@@ -29,8 +29,8 @@ const MovieFilter: FC = () => {
             top: 0,
             behavior: 'smooth'
         });
+        dispatch(genreActions.getMovieGenes())
     }, [])
-
 
     useEffect(() => {
         return () => {

@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 import {IGenre} from "../../../interfaces";
 import {useAppDispatch} from "../../../hooks";
-import {searchAction} from "../../../redux";
 
 export interface IGenreItemPros{
     genre:IGenre
