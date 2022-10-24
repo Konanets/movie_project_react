@@ -19,7 +19,7 @@ const ActorsList: FC<IActorsListProps> = ({type, id}) => {
         actorsService.getActorsById(id, type).then(({data}) => {
             setActors(data.cast)
         })
-    }, [])
+    }, [id])
 
     if (!actors?.length) {
         return null

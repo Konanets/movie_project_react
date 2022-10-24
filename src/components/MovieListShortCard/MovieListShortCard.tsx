@@ -1,11 +1,13 @@
 import {FC, memo} from "react";
 import {Link} from "react-router-dom";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {pngUrl} from "../../configs";
 import {StarsRating} from "../StarsRating/StarsRating";
 
 import scss from './MovieListShortCard.module.scss'
+
 
 export interface ICardsProps {
     movie: {
@@ -25,7 +27,7 @@ const MovieListShortCard: FC<ICardsProps> = memo(
     ({movie}) => {
         return (
             <div className={scss.card}>
-                <img
+                <LazyLoadImage
                     src={movie.poster_path
                         ? pngUrl + movie.poster_path
                         : 'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'}
