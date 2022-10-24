@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 
 import {ITv, IVideos} from "../interfaces";
 import {tvService} from "../services";
-import {TvInfo, VideoView} from "../components";
+import {ActorsList, TvInfo, VideoView} from "../components";
 
 const TvPage: FC = () => {
 
@@ -26,7 +26,7 @@ const TvPage: FC = () => {
     }, [id])
 
     if (!tv) {
-        return <h1>Loading......</h1>
+        return <h1 className={'loading'}>Loading......</h1>
     }
 
     return (
@@ -35,7 +35,8 @@ const TvPage: FC = () => {
                     backdrop_path={tv.backdrop_path} release_date={tv.first_air_date} genres={tv.genres}
                     vote_average={tv.vote_average} overview={tv.overview} number_of_seasons={tv.number_of_seasons}
                     number_of_episodes={tv.number_of_episodes}/>
-             {video?.results.length ? <VideoView url={video.results[0].key}/>:null}
+            {id && <ActorsList id={id} type={'tv'}/>}
+            {video?.results.length ? <VideoView url={video.results[0].key}/> : null}
         </>
     );
 };

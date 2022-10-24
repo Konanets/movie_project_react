@@ -28,7 +28,7 @@ const LoginPage: FC = () => {
         if (session_id) {
             navigate('/')
         }
-    },[])
+    },[session_id])
 
 
     return (

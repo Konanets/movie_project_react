@@ -13,6 +13,7 @@ const initialState: IMovieInitialState = {
     currentPage: 1,
     total_results: 0,
     total_pages: 500,
+    loading:false
 }
 
 
@@ -49,7 +50,6 @@ const getNowPlaying = createAsyncThunk<IMoviesService, void>(
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getNow_playingMovies()
-            console.log(data)
             return data
         } catch (e) {
             const res = e as AxiosError
@@ -77,6 +77,10 @@ const movieSlice = createSlice({
             } else {
                 state.total_pages = 500
             }
+            state.loading=false
+        })
+        .addCase(getMovies.pending,(state)=>{
+            state.loading=true
         })
         .addCase(getTrendingMovies.fulfilled, (state, action) => {
             state.trendingMovies = action.payload.results

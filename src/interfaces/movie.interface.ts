@@ -25,6 +25,7 @@ export interface IMovieInitialState {
     total_results: number,
     total_pages: number,
     currentPage: number,
+    loading:boolean
 }
 
 export interface IMoviesService {

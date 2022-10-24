@@ -1,10 +1,10 @@
 import {FC, useEffect, useState} from "react";
 
-import {IAccountDetail, IResultsMovie} from "../../interfaces";
+import {IAccountDetail, IResultsMovie, IResultsTv, ITvService} from "../../interfaces";
 import {accountService} from "../../services";
 import {useAppSelector} from "../../hooks";
 import {pngUrl} from "../../configs";
-import {MovieListShortCard} from "../../components";
+import {MovieListShortCard, TvListCard} from "../../components";
 
 import scss from './ProfilePage.module.scss'
 
@@ -15,6 +15,8 @@ const ProfilePage: FC = () => {
     const [user, setUser] = useState<IAccountDetail>()
     const [movieWatchList, setMovieWatchList] = useState<IResultsMovie[]>()
     const [movieFavoriteList, setMovieFavoriteList] = useState<IResultsMovie[]>()
+    const [tvWatchList, setTvWatchList] = useState<IResultsTv[]>()
+    const [tvFavoriteList, setTvFavoriteList] = useState<IResultsTv[]>()
 
     useEffect(() => {
         accountService.getDetails(session_id).then(({data}) => {
@@ -25,6 +27,12 @@ const ProfilePage: FC = () => {
         })
         accountService.getFavoriteMovies(account_id, session_id).then(({data}) => {
             setMovieFavoriteList(data.results)
+        })
+        accountService.getTvWatchlist(account_id, session_id).then(({data}) => {
+            setTvWatchList(data.results)
+        })
+        accountService.getFavoriteTv(account_id, session_id).then(({data}) => {
+            setTvFavoriteList(data.results)
         })
     }, [])
 
@@ -89,6 +97,49 @@ const ProfilePage: FC = () => {
                     ) : <h1>Nothing here...</h1>}
                 </div>
             </div>
+
+            <div className={scss.profile__list}>
+                <h1>Tv Favorite List</h1>
+                <div className={scss.profile__list__cards}>
+                    {tvFavoriteList?.length ? tvFavoriteList.map(tv =>
+                        <div key={tv.id}>
+                            <TvListCard
+                                first_air_date={tv.first_air_date}
+                                id={tv.id}
+                                genre_ids={tv.genre_ids}
+                                poster_path={tv.poster_path}
+                                title={tv.name}
+                                vote_average={tv.vote_average}/>
+                            <button className={scss.btn}
+                                    onClick={() => removeFromFavoriteList(tv.id, 'tv')}>Remove
+                            </button>
+                        </div>
+                    ) : <h1>Nothing here...</h1>}
+                </div>
+            </div>
+
+
+            <div className={scss.profile__list}>
+                <h1>Tv Watch List</h1>
+                <div className={scss.profile__list__cards}>
+                    {tvWatchList?.length ? tvWatchList.map(tv =>
+                        <div key={tv.id}>
+                            <TvListCard
+                                first_air_date={tv.first_air_date}
+                                id={tv.id}
+                                genre_ids={tv.genre_ids}
+                                poster_path={tv.poster_path}
+                                title={tv.name}
+                                vote_average={tv.vote_average}/>
+                            <button className={scss.btn}
+                                    onClick={() => removeFromWatchList(tv.id, 'tv')}>Remove
+                            </button>
+                        </div>
+                    ) : <h1>Nothing here...</h1>}
+                </div>
+            </div>
+
+
         </div>
 
     );

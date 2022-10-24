@@ -19,6 +19,7 @@ const _urls = {
     watchlist:'/watchlist',
     favorite:'/favorite',
     movies:'/movies',
+    credits:'/credits',
     auth:{
         authentication:'/authentication',
         token:'/token',

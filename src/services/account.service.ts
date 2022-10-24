@@ -1,6 +1,6 @@
 import {axiosInstance, AxiosRes} from "./axios.service";
 
-import {IAccountDetail, IMarkFavoriteRes, IMoviesService} from "../interfaces";
+import {IAccountDetail, IMarkFavoriteRes, IMoviesService, IResultsTv, ITvService} from "../interfaces";
 import {_urls} from "../configs";
 
 const accountService = {
@@ -23,7 +23,13 @@ const accountService = {
         axiosInstance.get(_urls.account + '/' + account_id + _urls.watchlist + _urls.movies + '?session_id=' + session_id),
 
     getFavoriteMovies: (account_id: number, session_id: string): AxiosRes<IMoviesService> =>
-        axiosInstance.get(_urls.account + '/' + account_id + _urls.favorite + _urls.movies + '?session_id=' + session_id)
+        axiosInstance.get(_urls.account + '/' + account_id + _urls.favorite + _urls.movies + '?session_id=' + session_id),
+
+    getTvWatchlist: (account_id: number, session_id: string): AxiosRes<ITvService> =>
+        axiosInstance.get(_urls.account + '/' + account_id + _urls.watchlist + _urls.tv + '?session_id=' + session_id),
+
+    getFavoriteTv: (account_id: number, session_id: string): AxiosRes<ITvService> =>
+        axiosInstance.get(_urls.account + '/' + account_id + _urls.favorite + _urls.tv + '?session_id=' + session_id)
 }
 
 export {accountService}

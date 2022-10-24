@@ -11,7 +11,7 @@ import scss from './MovieList.module.scss'
 
 const MovieList: FC = () => {
 
-    const {movies, currentPage, total_pages} = useAppSelector(state => state.movieReducer)
+    const {movies, currentPage, total_pages,loading} = useAppSelector(state => state.movieReducer)
     const {genresSelected, sortBy} = useAppSelector(state => state.searchReducer)
 
     const dispatch = useAppDispatch()
@@ -26,6 +26,9 @@ const MovieList: FC = () => {
         }
     }, [dispatch, genresSelected, sortBy])
 
+    if(loading){
+        return <h1 className={'loading'}>Loading...</h1>
+    }
 
     return (
         <div className={scss.movie__container}>

@@ -23,7 +23,6 @@ export interface ICardsProps {
 
 const MovieListShortCard: FC<ICardsProps> = memo(
     ({movie}) => {
-        console.log('shortCard')
         return (
             <div className={scss.card}>
                 <img

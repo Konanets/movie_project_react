@@ -1,6 +1,6 @@
 .movie {
   width: 100%;
-  min-height: 530px;
+  min-height: 550px;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,7 +32,8 @@
     display: flex;
     flex-wrap: wrap;
   &__description{
-    max-width: 700px;
+    min-width: 300px;
+    width: 700px;
     margin-left: 30px;
     span{
       display: flex;
@@ -62,5 +63,11 @@
 @media screen and (max-width: 858px) {
 .movie{
   min-height: 1000px;
+}
+}
+
+@media screen and (max-width: 1268px) {
+.movie{
+  min-height: 900px;
 }
 }

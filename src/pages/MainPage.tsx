@@ -23,6 +23,10 @@ const MainPage: FC = () => {
         });
     }, [dispatch])
 
+    if(!nowPlayingMovies.length || !trendingMovies.length){
+        return <h1 className={'loading'}>Loading...</h1>
+    }
+
     return (
         <main>
             {playingMovie &&
