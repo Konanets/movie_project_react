@@ -1,11 +1,13 @@
 import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {ILoginForm} from "../../interfaces";
+import {useNavigate} from "react-router-dom";
 
-import scss from './LoginPage.module.scss'
+import {ILoginForm} from "../../interfaces";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {authActions} from "../../redux";
-import {useNavigate} from "react-router-dom";
+
+import scss from './LoginPage.module.scss'
+
 
 const LoginPage: FC = () => {
 
@@ -26,7 +28,7 @@ const LoginPage: FC = () => {
         if (session_id) {
             navigate('/')
         }
-    })
+    },[])
 
 
     return (

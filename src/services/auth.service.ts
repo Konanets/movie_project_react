@@ -17,8 +17,7 @@ const authService = {
     createSession:(request_token:string):AxiosRes<ISession>=>
         axiosInstance.post(_urls.auth.authentication+_urls.auth.session+_urls.auth.new,{
         request_token
-    }),
-    getDetail:(session_id:string)=>axiosInstance.get('/account?session_id='+session_id)
+    })
 }
 
 export {authService}

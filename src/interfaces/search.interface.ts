@@ -17,7 +17,6 @@ export interface ISearchState {
     searched: ISearched[],
     genresSelected: string,
     sortBy: 'popularity.asc' | 'popularity.desc' | 'release_date.asc' | 'release_date.desc' ,
-    year: number | null,
 }
 
 export type CompareType = IResultsMovie & IResultsTv

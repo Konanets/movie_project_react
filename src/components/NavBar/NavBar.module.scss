@@ -120,31 +120,33 @@
   margin: 20% 20%;
 }
 
-.mini_profile{
+.mini_profile {
   height: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  img{
+
+  img {
     height: 80px;
     width: 80px;
     border-radius: 50%;
     border: 2px white solid;
   }
-  h1{
+
+  h1 {
     font-size: 16px;
     color: white;
   }
-  p{
+
+  p {
     color: white;
     cursor: pointer;
   }
 }
 
 @media screen and (max-width: 768px) {
-
   .side_navbar {
     width: 120px;
   }

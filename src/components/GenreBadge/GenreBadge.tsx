@@ -25,9 +25,8 @@ const GenreBadge: FC<IBadgePros> = ({genresIds, type}) => {
         }
     }, [])
 
-    console.log(movieGenres,tvGenres)
 
-    const filtered = type==='movie' ? movieGenres.filter(genre => genresIds.includes(genre.id)) :
+    const filtered = type === 'movie' ? movieGenres.filter(genre => genresIds.includes(genre.id)) :
         tvGenres.filter(genre => genresIds.includes(genre.id))
 
     return (

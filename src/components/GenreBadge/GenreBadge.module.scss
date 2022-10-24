@@ -1,9 +1,10 @@
-.badge{
+.badge {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  &__info{
+
+  &__info {
     font-size: 11px;
     height: 30px;
     min-width: 55px;

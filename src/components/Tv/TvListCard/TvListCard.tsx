@@ -1,9 +1,10 @@
 import {FC} from "react";
-
 import {Link} from "react-router-dom";
-import scss from '../../MovieListCard/MovieListCard.module.scss'
+
 import {PosterPreview} from "../../PosterPreview/PosterPreview";
 import {StarsRating} from "../../StarsRating/StarsRating";
+
+import scss from '../../MovieListCard/MovieListCard.module.scss'
 
 export interface ITvsProps {
     id: number,
@@ -17,7 +18,14 @@ export interface ITvsProps {
 }
 
 
-const TvListCard: FC<ITvsProps> = ({id,first_air_date,title,vote_average,poster_path,genre_ids}) => {
+const TvListCard: FC<ITvsProps> = ({
+                                       id,
+                                       first_air_date,
+                                       title,
+                                       vote_average,
+                                       poster_path,
+                                       genre_ids
+                                   }) => {
     return (
         <Link to={`/tv/${id}`}>
             <div className={scss.card}>

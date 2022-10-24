@@ -23,7 +23,7 @@ export const moneyConverter = (money: number): string | number => {
     return (Math.abs(Number(money)) >= 1.0e+9
         ? Math.floor(Math.abs(Number(money)) / 1.0e+9) + "B"
         : Math.floor(Math.abs(Number(money))) >= 1.0e+6
-            ? Math.floor(Math.abs(Number(money)) / 1.0e+6 ) + "M"
+            ? Math.floor(Math.abs(Number(money)) / 1.0e+6) + "M"
             : Math.floor(Math.abs(Number(money))) >= 1.0e+3
                 ? Math.floor(Math.abs(Number(money)) / 1.0e+3) + "K"
                 : Math.floor(Math.abs(Number(money))))

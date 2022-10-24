@@ -9,10 +9,9 @@ import {checkLimit} from "../../../utils";
 import scss from './HeaderSearch.module.scss'
 
 
-
 const HeaderSearch = () => {
 
-    const {register,reset} = useForm<{ search: string }>()
+    const {register, reset} = useForm<{ search: string }>()
 
     const {searched} = useAppSelector(state => state.searchReducer)
 
@@ -26,7 +25,7 @@ const HeaderSearch = () => {
                 name: e.target.value.trim()
             }))
         }
-            dispatch(searchAction.resetHeaderSearch())
+        dispatch(searchAction.resetHeaderSearch())
 
     }
 

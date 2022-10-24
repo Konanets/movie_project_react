@@ -1,8 +1,10 @@
 import {GenreMovieList} from "./GenreMovieList/GenreMovieList";
 
-import scss from './Header.module.scss'
 import {GenreTvList} from "./GenreTvList/GenreTvList";
 import {HeaderSearch} from "./HeaderSearch/HeaderSearch";
+
+import scss from './Header.module.scss'
+
 
 const Header = () => {
     return (

@@ -1,5 +1,4 @@
 import {FC, memo} from "react";
-
 import {Autoplay, Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 

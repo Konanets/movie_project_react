@@ -2,15 +2,15 @@ import {FC} from "react";
 
 import scss from './VideoView.module.scss'
 
-export interface IVideoView{
-    url:string
+export interface IVideoView {
+    url: string
 }
 
 
 const VideoView: FC<IVideoView> = ({url}) => {
     return (
         <div className={scss.video}>
-            <h2>Trailer</h2>
+            <h2>Video</h2>
             <div className={scss.trailer}>
                 <iframe
                     className={scss.iframe}

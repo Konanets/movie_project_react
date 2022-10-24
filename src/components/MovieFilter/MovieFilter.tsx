@@ -1,11 +1,13 @@
 import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useSearchParams} from "react-router-dom";
+
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genreActions, searchAction} from "../../redux";
+import {IFilter} from "../../interfaces";
 
 import scss from './MovieFilter.module.scss'
-import {IFilter} from "../../interfaces";
+
 
 
 const MovieFilter: FC = () => {
@@ -20,7 +22,7 @@ const MovieFilter: FC = () => {
 
 
     let queryGenre = query.get('genre')
-    console.log(new Date())
+
     useEffect(() => {
         if (!!queryGenre) {
             dispatch(searchAction.setGenresSelected(queryGenre))

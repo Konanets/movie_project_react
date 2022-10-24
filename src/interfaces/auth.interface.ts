@@ -10,9 +10,9 @@ export interface ISession {
 }
 
 export interface IAuthInitialState {
-    account_id:number
+    account_id: number
     session_id: string,
-    error:string
+    error: string
 }
 
 export interface ILoginForm {

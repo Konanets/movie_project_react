@@ -1,12 +1,13 @@
 .rating {
-  &__white{
-      :global(.MuiSvgIcon-root) {
-    fill: white;
+  &__white {
+    :global(.MuiSvgIcon-root) {
+      fill: white;
+    }
   }
-  }
-  &__yellow{
-         :global(.MuiSvgIcon-root) {
-    fill: yellow;
-  }
+
+  &__yellow {
+    :global(.MuiSvgIcon-root) {
+      fill: yellow;
+    }
   }
 }

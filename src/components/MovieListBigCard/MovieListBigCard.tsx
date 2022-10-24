@@ -35,8 +35,8 @@ const MovieListBigCard: FC<ICardsProps> = ({movie}) => {
                     <StarsRating rating={movie.vote_average} color={"white"}/>
                     <p>Release data: {movie.release_date}</p>
                     <p>Movie Rating: {movie.vote_average}</p>
-                    <p>{truncateString(movie.overview,150)}</p>
-                     <Link className={scss.square_btn} to={`/movie/${movie.id}`}>More Info</Link>
+                    <p>{truncateString(movie.overview, 150)}</p>
+                    <Link className={scss.square_btn} to={`/movie/${movie.id}`}>More Info</Link>
                 </div>
             </div>
         </div>

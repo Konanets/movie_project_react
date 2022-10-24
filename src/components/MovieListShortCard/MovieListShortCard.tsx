@@ -1,7 +1,7 @@
 import {FC, memo} from "react";
+import {Link} from "react-router-dom";
 
 import {GenreBadge} from "../GenreBadge/GenreBadge";
-import {Link} from "react-router-dom";
 import {pngUrl} from "../../configs";
 import {StarsRating} from "../StarsRating/StarsRating";
 
@@ -33,7 +33,8 @@ const MovieListShortCard: FC<ICardsProps> = memo(
                     alt={movie.title}/>
                 <Link to={`/movie/${movie.id}`}>
                     <div className={scss.card__content}>
-                        <div className={scss.card__content__banges}><GenreBadge type={"movie"} genresIds={movie.genre_ids}/></div>
+                        <div className={scss.card__content__banges}><GenreBadge type={"movie"}
+                                                                                genresIds={movie.genre_ids}/></div>
                         <div className={scss.card__content__contrast}>
                         </div>
                         <div className={scss.card__content__info}>

@@ -2,12 +2,11 @@ import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useSearchParams} from "react-router-dom";
 
-import scss from '../../MovieFilter/MovieFilter.module.scss'
-
 import {useAppDispatch, useAppSelector} from "../../../hooks";
 import {genreActions, searchAction} from "../../../redux";
 import {IFilter} from "../../../interfaces";
 
+import scss from '../../MovieFilter/MovieFilter.module.scss'
 
 const TvFilter: FC = () => {
 
@@ -23,7 +22,7 @@ const TvFilter: FC = () => {
     let queryGenre = query.get('genre')
 
     useEffect(() => {
-        if (!!queryGenre) {
+        if (queryGenre?.length) {
             dispatch(searchAction.setGenresSelected(queryGenre))
         }
         window.scrollTo({
@@ -64,7 +63,6 @@ const TvFilter: FC = () => {
                 </select>
                 <button className={scss.btn}>SEnd</button>
             </div>
-
         </form>
     );
 };

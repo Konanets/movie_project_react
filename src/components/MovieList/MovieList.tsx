@@ -1,9 +1,10 @@
 import React, {FC, useEffect} from "react";
+import {Pagination} from "@mui/material";
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {movieActions} from "../../redux";
+import {movieActions, searchAction} from "../../redux";
 import {MovieListCard} from "../MovieListCard/MovieListCard";
-import {Pagination} from "@mui/material";
+
 
 import scss from './MovieList.module.scss'
 
@@ -17,12 +18,11 @@ const MovieList: FC = () => {
 
 
     useEffect(() => {
-        console.log(genresSelected)
         dispatch(movieActions.getMovies({currentPage, genresSelected, sortBy}))
-
 
         return () => {
             dispatch(movieActions.resetPage())
+            dispatch(searchAction.resetFilter())
         }
     }, [dispatch, genresSelected, sortBy])
 

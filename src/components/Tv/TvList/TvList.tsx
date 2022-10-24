@@ -1,13 +1,12 @@
 import React, {FC, useEffect} from "react";
-
-
 import {Pagination} from "@mui/material";
 
-import scss from '../../MovieList/MovieList.module.scss'
+
 import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {tvActions} from "../../../redux";
+import {searchAction, tvActions} from "../../../redux";
 import {TvListCard} from "../TvListCard/TvListCard";
 
+import scss from '../../MovieList/MovieList.module.scss'
 
 const TvList: FC = () => {
 
@@ -23,6 +22,7 @@ const TvList: FC = () => {
 
         return () => {
             dispatch(tvActions.resetPage())
+            dispatch(searchAction.resetFilter())
         }
     }, [dispatch, genresSelected, sortBy])
 

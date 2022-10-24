@@ -1,14 +1,13 @@
 import {FC, memo} from "react";
+import {Link} from "react-router-dom";
 
-import {useAppSelector} from "../../hooks";
-import {randomizer, truncateString} from "../../utils";
-
-import scss from './MainMovie.module.scss'
+import {truncateString} from "../../utils";
 import {pngUrl} from "../../configs";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {StarsRating} from "../StarsRating/StarsRating";
-import {Link} from "react-router-dom";
 
+
+import scss from './MainMovie.module.scss'
 
 interface IMainMovieProps {
     id: number,
@@ -29,13 +28,7 @@ const MainMovie: FC<IMainMovieProps> = memo(({
                                                  release_date,
                                                  vote_average
                                              }) => {
-
-
-    console.log('mainMovie')
-
-
     return (
-
         <div className={scss.container}>
             <h1>Our recommendation</h1>
             <div className={scss.content}>

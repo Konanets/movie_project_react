@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
 
 import {IMovieInitialState, IMoviesService} from "../../interfaces";
 import {movieService} from "../../services";
-import {AxiosError} from "axios";
 
 
 const initialState: IMovieInitialState = {
@@ -17,14 +17,14 @@ const initialState: IMovieInitialState = {
 
 
 const getMovies = createAsyncThunk<IMoviesService, {
-    currentPage: number ,
-    genresSelected:string,
-    sortBy:string
+    currentPage: number,
+    genresSelected: string,
+    sortBy: string
 }>(
     'movieSlice/getMovies',
-    async ({currentPage,sortBy,genresSelected}, {rejectWithValue}) => {
+    async ({currentPage, sortBy, genresSelected}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getAll(currentPage,sortBy,genresSelected)
+            const {data} = await movieService.getAll(currentPage, sortBy, genresSelected)
             return data
         } catch (e) {
             return rejectWithValue((e as AxiosError).message)
@@ -72,10 +72,10 @@ const movieSlice = createSlice({
     extraReducers: builder => builder
         .addCase(getMovies.fulfilled, (state, action) => {
             state.movies = action.payload.results
-            if(action.payload.total_pages<=500){
-                state.total_pages=action.payload.total_pages
-            }else{
-                state.total_pages=500
+            if (action.payload.total_pages <= 500) {
+                state.total_pages = action.payload.total_pages
+            } else {
+                state.total_pages = 500
             }
         })
         .addCase(getTrendingMovies.fulfilled, (state, action) => {

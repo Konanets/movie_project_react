@@ -26,7 +26,8 @@ const SearchItem: FC<ISearchItemProps> = ({tape, reset}) => {
     }
 
     return (
-        <Link onClick={onClick} to={tape.media_type==='tv'?`/tv/${tape.id}`:`/movie/${tape.id}`} className={scss.search_list_item}>
+        <Link onClick={onClick} to={tape.media_type === 'tv' ? `/tv/${tape.id}` : `/movie/${tape.id}`}
+              className={scss.search_list_item}>
             <div className={scss.search_item_thumbnail}>
 
                 <img

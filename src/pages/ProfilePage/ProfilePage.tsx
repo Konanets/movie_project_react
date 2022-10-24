@@ -1,18 +1,16 @@
 import {FC, useEffect, useState} from "react";
 
-import scss from './ProfilePage.module.scss'
-import {IAccountDetail, IMoviesService, IResultsMovie} from "../../interfaces";
+import {IAccountDetail, IResultsMovie} from "../../interfaces";
 import {accountService} from "../../services";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useAppSelector} from "../../hooks";
 import {pngUrl} from "../../configs";
-import {Link} from "react-router-dom";
-import {MovieListCard} from "../../components/MovieListCard/MovieListCard";
 import {MovieListShortCard} from "../../components";
+
+import scss from './ProfilePage.module.scss'
 
 const ProfilePage: FC = () => {
 
     const {session_id, account_id} = useAppSelector(state => state.authReducer)
-
 
     const [user, setUser] = useState<IAccountDetail>()
     const [movieWatchList, setMovieWatchList] = useState<IResultsMovie[]>()
@@ -48,7 +46,8 @@ const ProfilePage: FC = () => {
 
     }
 
-    const avatarImg = user?.avatar?.tmdb.avatar_path ? pngUrl + user.avatar.tmdb.avatar_path : 'https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'
+    const avatarImg = user?.avatar?.tmdb.avatar_path ? pngUrl + user.avatar.tmdb.avatar_path
+        : 'https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'
 
     return (
         <div>

@@ -1,16 +1,15 @@
-import {FC, useEffect, useState} from "react";
-
-import StarIcon from '@mui/icons-material/Star';
+import {FC} from "react";
 
 
-import scss from './MovieInfo.module.scss'
-import {IGenres, IMovie, IVideoResults} from "../../interfaces";
+import {IGenres} from "../../interfaces";
 import {pngUrl} from "../../configs";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {convertTime, moneyConverter} from "../../utils";
 import {StarsRating} from "../StarsRating/StarsRating";
 import {useAppSelector} from "../../hooks";
 import {accountService} from "../../services";
+
+import scss from './MovieInfo.module.scss'
 
 export interface IMovieInfo {
     id: number,

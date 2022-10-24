@@ -108,7 +108,7 @@ export interface IVideoResults {
 
 export interface IVideos {
     id: number
-    results:IVideoResults[]
+    results: IVideoResults[]
 }
 
 

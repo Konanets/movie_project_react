@@ -1,15 +1,15 @@
 import {Link} from "react-router-dom";
-
+import {FC, useEffect, useState} from "react";
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 
-import scss from './NavBar.module.scss';
-import {FC, useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {accountService} from "../../services";
 import {IAccountDetail} from "../../interfaces";
 import {pngUrl} from "../../configs";
 import {authActions} from "../../redux";
+
+import scss from './NavBar.module.scss';
 
 export interface INavBar {
     theme: string,
@@ -23,7 +23,7 @@ const NavBar: FC<INavBar> = ({switchTheme, theme}) => {
 
     const dispatch = useAppDispatch()
 
-    const [user, setUser] = useState<IAccountDetail|null>(null)
+    const [user, setUser] = useState<IAccountDetail | null>(null)
 
     useEffect(() => {
         if (session_id) {
@@ -39,8 +39,9 @@ const NavBar: FC<INavBar> = ({switchTheme, theme}) => {
         dispatch(authActions.logOut())
         setUser(null)
     }
-    console.log(user)
-    const avatarImg = user?.avatar?.tmdb.avatar_path ? pngUrl + user.avatar.tmdb.avatar_path : 'https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'
+
+    const avatarImg = user?.avatar?.tmdb.avatar_path ? pngUrl + user.avatar.tmdb.avatar_path
+        : 'https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg'
 
     return (
         <nav className={scss.nav}>

@@ -1,21 +1,21 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
 
 import {CompareType, ISearchState, ISearched, IFilter} from "../../interfaces";
 import {searchService} from "../../services";
-import {AxiosError} from "axios";
+
 
 const initialState: ISearchState = {
     searched: [],
     genresSelected: 'all',
     sortBy: 'popularity.desc',
-    year: null,
 }
 
 const getSimilar = createAsyncThunk<ISearched[] | [], { name: string }>(
     'searchSlice/GetSimilar',
     async ({name}, {rejectWithValue}) => {
         try {
-            if (!name.length) return [];
+            if (name.length<=1) return [];
             const {data} = await searchService.search(name)
             return data.results.slice(0, 6).filter(tape => tape.media_type === 'tv' || tape.media_type === 'movie').map((tape: CompareType): ISearched => {
                 const new_item: ISearched = {
@@ -47,7 +47,6 @@ const searchSlice = createSlice({
         },
         setFilter: (state, action: PayloadAction<IFilter>) => {
             if (action.payload.genresSelected) {
-                console.log(5)
                 state.genresSelected = action.payload.genresSelected.join(',')
             }
             if (action.payload.sortBy) {
@@ -56,7 +55,6 @@ const searchSlice = createSlice({
 
         },
         resetFilter: (state) => {
-            console.log('reset')
             state.genresSelected = 'all'
             state.sortBy = initialState.sortBy
         },
@@ -68,7 +66,6 @@ const searchSlice = createSlice({
     },
     extraReducers: builder => builder
         .addCase(getSimilar.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.searched = action.payload
         })
 })

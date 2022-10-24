@@ -3,12 +3,15 @@
   margin-bottom: 5px;
   margin-right: 25px;
   transition: all .2s ease-in-out;
-  &:hover{
+
+  &:hover {
     transform: scale(1.1);
   }
+
   &__info {
     height: 130px;
     width: 250px;
+
     h1 {
       color: #ffffff;
       font-size: 16px;

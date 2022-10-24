@@ -1,14 +1,12 @@
 import {FC} from "react";
-
 import {Rating} from "@mui/material";
+
+import scss from './StarsRating.module.scss'
 
  interface IStarsProps {
     rating: number,
     color: 'white' | 'yellow'
 }
-
-import scss from './StarsRating.module.scss'
-
 
 const StarsRating: FC<IStarsProps> = ({rating, color}) => {
     return (

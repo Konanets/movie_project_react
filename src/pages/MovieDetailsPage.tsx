@@ -1,14 +1,13 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+
 import {IMovie, IResultsMovie, IVideos} from "../interfaces";
 import {movieService} from "../services";
 import {MovieInfo, MovieSlider, VideoView} from "../components";
-import {AxiosError} from "axios";
 
 const MovieDetailsPage = () => {
 
     const {id} = useParams<{ id: string }>()
-    const [error,setError]=useState<string>('')
 
     const [movie, setMovie] = useState<IMovie>()
     const [video, setVideo] = useState<IVideos|null>(null)
@@ -28,10 +27,11 @@ const MovieDetailsPage = () => {
 
         }
     }, [id])
+
     if (!movie) {
         return <div>Loading......</div>
     }
-    console.log(video)
+
     return (
         <>
             <MovieInfo

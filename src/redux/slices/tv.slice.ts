@@ -1,8 +1,9 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
 
 import {ITvInitialState, ITvService} from "../../interfaces";
 import {tvService} from "../../services";
-import {AxiosError} from "axios";
+
 
 
 const initialState: ITvInitialState = {

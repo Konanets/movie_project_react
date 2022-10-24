@@ -7,7 +7,7 @@ import {GenreItem} from "../GenreItem/GenreItem";
 import scss from '../Header.module.scss'
 
 
-const GenreMovieList:FC = () => {
+const GenreMovieList: FC = () => {
 
 
     const {movieGenres, error} = useAppSelector(state => state.genreReducer)
@@ -26,7 +26,9 @@ const GenreMovieList:FC = () => {
                     <div className={scss.row}>
                         <h1>Movie Genres</h1>
                         <ul className={scss.mega_links}>
-                            {error ? (<h1>'Error'</h1>) : movieGenres.map(genre => <GenreItem type={"movies"} key={genre.id} genre={genre}/>)}
+                            {error ? (<h1>'Error'</h1>) : movieGenres.map(genre => <GenreItem type={"movies"}
+                                                                                              key={genre.id}
+                                                                                              genre={genre}/>)}
                         </ul>
                     </div>
                 </div>
