@@ -33,7 +33,7 @@ const MovieListShortCard: FC<ICardsProps> = memo(
                     alt={movie.title}/>
                 <Link to={`/movie/${movie.id}`}>
                     <div className={scss.card__content}>
-                        <div className={scss.card__content__banges}><GenreBadge genresIds={movie.genre_ids}/></div>
+                        <div className={scss.card__content__banges}><GenreBadge type={"movie"} genresIds={movie.genre_ids}/></div>
                         <div className={scss.card__content__contrast}>
                         </div>
                         <div className={scss.card__content__info}>

@@ -15,6 +15,7 @@ const MainLayout = () => {
         setTheme(newTheme);
     }
 
+
     return (
             <div className={scss.container}  data-theme={theme}>
                 <NavBar switchTheme={switchTheme} theme={theme}/>

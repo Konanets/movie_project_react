@@ -1,0 +1,49 @@
+.profile {
+  width: 100%;
+  padding: 20px 10%;
+
+  img {
+    height: 250px;
+    width: 250px;
+  }
+
+  &__info {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+
+    &_data {
+      margin-left: 15px;
+    }
+  }
+
+  &__list {
+    h1 {
+      color: white;
+      font-size: 44px;
+      margin-left: 5%;
+    }
+
+    &__cards {
+      border-bottom: white 1px solid;
+      width: 90%;
+      margin: 0 auto;
+      padding-bottom: 45px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5%;
+      row-gap: 25px;
+
+
+      .btn{
+        background-color: indianred;
+        color: white;
+        height: 30px;
+        width: 100%;
+      }
+
+    }
+  }
+}

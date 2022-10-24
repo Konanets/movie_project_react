@@ -8,10 +8,11 @@ import scss from './PosterPreview.module.scss'
 export interface IPosterPreviewProps {
     url: string,
     genre_ids: number[],
-    alt: string
+    alt: string,
+    type:'tv'|'movie'
 }
 
-const PosterPreview: FC<IPosterPreviewProps> = ({url, genre_ids, alt}) => {
+const PosterPreview: FC<IPosterPreviewProps> = ({url, genre_ids, alt,type}) => {
     return (
         <div className={scss.poster}>
             <img
@@ -19,7 +20,7 @@ const PosterPreview: FC<IPosterPreviewProps> = ({url, genre_ids, alt}) => {
                     : 'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'}
                 alt={alt}/>
             <div className={scss.poster__badges}>
-                <GenreBadge genresIds={genre_ids}/>
+                <GenreBadge genresIds={genre_ids} type={type}/>
             </div>
         </div>
     );

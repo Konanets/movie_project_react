@@ -31,7 +31,7 @@ const MovieListBigCard: FC<ICardsProps> = ({movie}) => {
             <div className={scss.bigCard__info_container}>
                 <div className={scss.bigCard__info}>
                     <h1>{movie.title}</h1>
-                    <GenreBadge genresIds={movie.genre_ids}/>
+                    <GenreBadge type={"movie"} genresIds={movie.genre_ids}/>
                     <StarsRating rating={movie.vote_average} color={"white"}/>
                     <p>Release data: {movie.release_date}</p>
                     <p>Movie Rating: {movie.vote_average}</p>

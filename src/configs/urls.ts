@@ -14,7 +14,18 @@ const _urls = {
     day:'/day',
     now_playing:'/now_playing',
     videos:'/videos',
-    similar:'/similar'
+    similar:'/similar',
+    account:'/account',
+    watchlist:'/watchlist',
+    favorite:'/favorite',
+    movies:'/movies',
+    auth:{
+        authentication:'/authentication',
+        token:'/token',
+        session:'/session',
+        new:'/new',
+        validate_with_login:'/validate_with_login'
+    }
 }
 
 export {

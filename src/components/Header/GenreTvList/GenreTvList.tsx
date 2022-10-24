@@ -16,7 +16,6 @@ const GenreTvList:FC = () => {
 
     useEffect(() => {
         dispatch(genreActions.getTvGenes())
-        console.log(tvGenres)
     }, [])
 
     return (
@@ -27,7 +26,7 @@ const GenreTvList:FC = () => {
                     <div className={scss.row}>
                         <h1>Tv Genres</h1>
                         <ul className={scss.mega_links}>
-                            {error ? (<h1>'Error'</h1>) : tvGenres.map(genre => <GenreItem key={genre.id} genre={genre}/>)}
+                            {error ? (<h1>'Error'</h1>) : tvGenres.map(genre => <GenreItem  type={"tv"} key={genre.id} genre={genre}/>)}
                         </ul>
                     </div>
                 </div>

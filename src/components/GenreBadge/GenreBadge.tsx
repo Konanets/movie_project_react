@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genreActions} from "../../redux";
@@ -6,20 +6,29 @@ import {genreActions} from "../../redux";
 import scss from './GenreBadge.module.scss'
 
 export interface IBadgePros {
-    genresIds: number[]
+    genresIds: number[],
+    type: 'tv' | 'movie'
 }
 
-const GenreBadge: FC<IBadgePros> = ({genresIds}) => {
+const GenreBadge: FC<IBadgePros> = ({genresIds, type}) => {
 
-    const {movieGenres} = useAppSelector(state => state.genreReducer)
+    const {movieGenres, tvGenres} = useAppSelector(state => state.genreReducer)
 
     const dispatch = useAppDispatch()
 
-    if (!movieGenres.length) {
-        dispatch(genreActions.getMovieGenes)
-    }
 
-    const filtered = movieGenres.filter(genre => genresIds.includes(genre.id))
+    useEffect(() => {
+        if (!movieGenres.length && type === 'movie') {
+            dispatch(genreActions.getMovieGenes)
+        } else if (!tvGenres.length && type === 'tv') {
+            dispatch(genreActions.getTvGenes)
+        }
+    }, [])
+
+    console.log(movieGenres,tvGenres)
+
+    const filtered = type==='movie' ? movieGenres.filter(genre => genresIds.includes(genre.id)) :
+        tvGenres.filter(genre => genresIds.includes(genre.id))
 
     return (
         <div className={scss.badge}>

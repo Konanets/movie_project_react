@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-import {CompareType, ISearchState, ISearched, IMovieFilter} from "../../interfaces";
+import {CompareType, ISearchState, ISearched, IFilter} from "../../interfaces";
 import {searchService} from "../../services";
 import {AxiosError} from "axios";
 
@@ -45,7 +45,7 @@ const searchSlice = createSlice({
         resetHeaderSearch: (state) => {
             state.searched = []
         },
-        setFilter: (state, action: PayloadAction<IMovieFilter>) => {
+        setFilter: (state, action: PayloadAction<IFilter>) => {
             if (action.payload.genresSelected) {
                 console.log(5)
                 state.genresSelected = action.payload.genresSelected.join(',')

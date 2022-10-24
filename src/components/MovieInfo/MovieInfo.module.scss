@@ -1,6 +1,6 @@
 .movie {
   width: 100%;
-  min-height: 500px;
+  min-height: 530px;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,14 +26,14 @@
 
   &__info {
     padding-top: 2%;
-    padding-left: 10%;
+    padding-left: 5%;
     position: absolute;
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
   &__description{
     max-width: 700px;
-    margin-left: 40px;
+    margin-left: 30px;
     span{
       display: flex;
       align-items: center;
@@ -45,5 +45,22 @@
     }
   }
   }
+  &__actions{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    &_btn{
+      height: 50px;
+      width: 120px;
+      background-color: indianred;
+      color: white;
+    }
+  }
+}
 
+@media screen and (max-width: 858px) {
+.movie{
+  min-height: 1000px;
+}
 }

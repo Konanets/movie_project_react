@@ -42,7 +42,7 @@ const MainMovie: FC<IMainMovieProps> = memo(({
                 <img src={`${pngUrl}${poster_path}`} alt=""/>
                 <div className={scss.content__info}>
                     <h1>{title}</h1>
-                    <GenreBadge genresIds={genre_ids}/>
+                    <GenreBadge genresIds={genre_ids} type={"movie"}/>
                     <div>
                         <h2>Overview</h2>
                         <p>{truncateString(overview, 150)}</p>

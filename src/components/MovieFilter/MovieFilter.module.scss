@@ -49,12 +49,13 @@
 
     label {
       display: flex;
-      border: solid 2px limegreen;
+      border: solid 2px #0a21a0;
       border-radius: 15px;
-      width: 120px;
+      min-width: 120px;
+      max-width: 210px;
       height: 50px;
       margin: 10px;
-      color: limegreen;
+      color: #4a1515;
       background-color: white;
       text-align: center;
       line-height: 80px;

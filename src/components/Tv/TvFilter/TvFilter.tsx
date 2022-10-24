@@ -1,16 +1,17 @@
 import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useSearchParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {genreActions, searchAction} from "../../redux";
 
-import scss from './MovieFilter.module.scss'
-import {IFilter} from "../../interfaces";
+import scss from '../../MovieFilter/MovieFilter.module.scss'
+
+import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {genreActions, searchAction} from "../../../redux";
+import {IFilter} from "../../../interfaces";
 
 
-const MovieFilter: FC = () => {
+const TvFilter: FC = () => {
 
-    const {movieGenres} = useAppSelector(state => state.genreReducer)
+    const {tvGenres} = useAppSelector(state => state.genreReducer)
 
     const {register, handleSubmit} = useForm<IFilter>()
 
@@ -20,7 +21,7 @@ const MovieFilter: FC = () => {
 
 
     let queryGenre = query.get('genre')
-    console.log(new Date())
+
     useEffect(() => {
         if (!!queryGenre) {
             dispatch(searchAction.setGenresSelected(queryGenre))
@@ -29,7 +30,7 @@ const MovieFilter: FC = () => {
             top: 0,
             behavior: 'smooth'
         });
-        dispatch(genreActions.getMovieGenes())
+        dispatch(genreActions.getTvGenes())
     }, [])
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const MovieFilter: FC = () => {
         <form onSubmit={handleSubmit(onSubmit)} className={scss.form}>
             <div className={scss.form__check_box}>
                 <h1>Genres</h1>
-                {movieGenres.map(genre => <div key={genre.id}>
+                {tvGenres.map(genre => <div key={genre.id}>
                     <input id={genre.name} type="checkbox" {...register('genresSelected')} value={genre.id}
                            defaultChecked={genre.id.toString() === queryGenre}/>
                     <label htmlFor={genre.name}>{genre.name}</label>
@@ -68,4 +69,4 @@ const MovieFilter: FC = () => {
     );
 };
 
-export {MovieFilter};
+export {TvFilter};

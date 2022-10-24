@@ -8,7 +8,8 @@ export type AxiosRes<T> = Promise<AxiosResponse<T>>
 const axiosInstance = axios.create({
     baseURL,
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+        'Content-Type':'application/json;charset=utf-8'
     }
 })
 

@@ -26,7 +26,7 @@ export interface simpleSearchRes {
     results: CompareType[]
 }
 
-export interface IMovieFilter {
+export interface IFilter {
     genresSelected: string[]
     sortBy: 'popularity.asc' | 'popularity.desc' | 'release_date.asc' | 'release_date.desc',
 }

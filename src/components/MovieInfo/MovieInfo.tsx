@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {movieService} from "../../services";
+
+import StarIcon from '@mui/icons-material/Star';
 
 
 import scss from './MovieInfo.module.scss'
@@ -9,8 +9,11 @@ import {pngUrl} from "../../configs";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import {convertTime, moneyConverter} from "../../utils";
 import {StarsRating} from "../StarsRating/StarsRating";
+import {useAppSelector} from "../../hooks";
+import {accountService} from "../../services";
 
 export interface IMovieInfo {
+    id: number,
     title: string,
     original_title: string,
     poster_path: string,
@@ -26,6 +29,7 @@ export interface IMovieInfo {
 
 
 const MovieInfo: FC<IMovieInfo> = ({
+                                       id,
                                        budget,
                                        revenue,
                                        original_title,
@@ -39,11 +43,35 @@ const MovieInfo: FC<IMovieInfo> = ({
                                        release_date
                                    }) => {
 
+
+    const {session_id, account_id} = useAppSelector(state => state.authReducer)
+
+    const addToWatchList = async () => {
+        if (session_id && account_id) {
+            const {data} = await accountService.addToWatchList("movie", id, true, session_id, account_id)
+            alert(data.status_message)
+        } else {
+            alert('pls login')
+        }
+
+    }
+
+    const markAsFavorite = async () => {
+        if (session_id && account_id) {
+            const {data} = await accountService.markAsFavorite("movie", id, true, session_id, account_id)
+            alert(data.status_message)
+        } else {
+            alert('pls login')
+        }
+
+    }
+
     return (
         <div className={scss.movie} style={{backgroundImage: `url(${pngUrl + backdrop_path})`}}>
             <div className={scss.movie__info}>
-                <img src={poster_path?pngUrl + poster_path
-                    :'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'} alt={title}/>
+                <img src={poster_path ? pngUrl + poster_path
+                    : 'https://www.kindpng.com/picc/m/783-7831792_image-not-available-png-download-graphic-design-transparent.png'}
+                     alt={title}/>
                 <div className={scss.movie__info__description}>
                     <span>
                        <h1>{title}</h1>
@@ -52,7 +80,7 @@ const MovieInfo: FC<IMovieInfo> = ({
 
                     <p>Release data: {release_date}</p>
 
-                    <GenreBadge genresIds={genres.map(genre => genre.id)}/>
+                    <GenreBadge type={"movie"} genresIds={genres.map(genre => genre.id)}/>
                     <p>Viewing time: {convertTime(runtime)}</p>
                     <span>
                         {!!budget && <p>Budget: ${moneyConverter(budget)} / </p>}
@@ -62,6 +90,12 @@ const MovieInfo: FC<IMovieInfo> = ({
                     <StarsRating rating={vote_average} color={"white"}/>
                     <h3>Overview</h3>
                     <p>{overview}</p>
+                    <div className={scss.movie__actions}>
+                        <button className={scss.movie__actions_btn} onClick={() => addToWatchList()}>Add to Watch list
+                        </button>
+                        <button className={scss.movie__actions_btn} onClick={() => markAsFavorite()}>Mark as Favorite
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ const MovieListCard: FC<ICardsProps> = ({movie}) => {
     return (
         <Link to={`/movie/${movie.id}`}>
             <div className={scss.card}>
-                <PosterPreview alt={movie.title} genre_ids={movie.genre_ids} url={movie.poster_path}/>
+                <PosterPreview alt={movie.title} genre_ids={movie.genre_ids} url={movie.poster_path} type={"movie"}/>
                 <div className={scss.card__info}>
                     <h1>{movie.title}</h1>
                     <StarsRating rating={movie.vote_average} color={"yellow"}/>

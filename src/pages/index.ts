@@ -1,3 +1,7 @@
 export * from './MainPage'
 export * from './MovieDetailsPage'
 export * from './MoviesPage'
+export * from './TvPage'
+export * from './LoginPage/LoginPage'
+export * from './ProfilePage/ProfilePage'
+export * from './TvsPage'

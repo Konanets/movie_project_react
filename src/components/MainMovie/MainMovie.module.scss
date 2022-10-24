@@ -4,8 +4,10 @@
   background-image: url("https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg");
   background-repeat: no-repeat;
   background-size: cover;
+
   h1 {
     color: var(--white-color);
+    margin: 10px 0;
   }
 
   .content {
@@ -36,7 +38,7 @@
         align-items: center;
         margin-bottom: 20px;
         text-decoration: none;
-        background: #668ad8; /*Button Color*/
+        background: var(--btn-color);
         color: #FFF;
         border-bottom: solid 4px #627295;
         border-radius: 3px;
@@ -72,17 +74,19 @@
   }
 }
 
-@media screen and (max-width: 858px){
-  .container{
+@media screen and (max-width: 858px) {
+  .container {
     height: 900px;
   }
-  .content{
+  .content {
     height: 800px;
     flex-direction: column;
-    &::after{
+
+    &::after {
       width: 250px;
     }
-    &__info{
+
+    &__info {
       height: 800px;
     }
   }
