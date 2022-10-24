@@ -37,13 +37,22 @@
       row-gap: 25px;
 
 
-      .btn{
+      .btn {
         background-color: indianred;
         color: white;
         height: 30px;
         width: 100%;
       }
 
+      .tvCard {
+        height: 430px;
+        width: 250px;
+        margin-bottom: 55px;
+        h1{
+          font-size: 12px;
+          margin: 0;
+        }
+      }
     }
   }
 }

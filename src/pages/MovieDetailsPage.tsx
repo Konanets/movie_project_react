@@ -29,7 +29,7 @@ const MovieDetailsPage = () => {
     }, [id])
 
     if (!movie) {
-        return <div>Loading......</div>
+        return <h1 className={'loading'}>Loading......</h1>
     }
 
     return (

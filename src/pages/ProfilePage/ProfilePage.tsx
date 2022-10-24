@@ -41,6 +41,8 @@ const ProfilePage: FC = () => {
         alert(data.status_message)
         if (type === 'movie') {
             setMovieWatchList(prevState => prevState?.filter(movie => movie.id !== id))
+        }else{
+            setTvWatchList(prevState => prevState?.filter(tv => tv.id !== id))
         }
 
     }
@@ -50,6 +52,8 @@ const ProfilePage: FC = () => {
         alert(data.status_message)
         if (type === 'movie') {
             setMovieFavoriteList(prevState => prevState?.filter(movie => movie.id !== id))
+        }else{
+            setTvFavoriteList(prevState => prevState?.filter(tv => tv.id !== id))
         }
 
     }
@@ -102,7 +106,7 @@ const ProfilePage: FC = () => {
                 <h1>Tv Favorite List</h1>
                 <div className={scss.profile__list__cards}>
                     {tvFavoriteList?.length ? tvFavoriteList.map(tv =>
-                        <div key={tv.id}>
+                        <div className={scss.tvCard} key={tv.id}>
                             <TvListCard
                                 first_air_date={tv.first_air_date}
                                 id={tv.id}
@@ -123,7 +127,7 @@ const ProfilePage: FC = () => {
                 <h1>Tv Watch List</h1>
                 <div className={scss.profile__list__cards}>
                     {tvWatchList?.length ? tvWatchList.map(tv =>
-                        <div key={tv.id}>
+                        <div className={scss.tvCard} key={tv.id}>
                             <TvListCard
                                 first_air_date={tv.first_air_date}
                                 id={tv.id}

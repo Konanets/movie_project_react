@@ -39,7 +39,9 @@ const LoginPage: FC = () => {
                 <h1>Login to your account</h1>
                 <p>Before logging in, please register an account on the official <a target="_blank"
                                                                                     href={'https://www.themoviedb.org/signup'}>TMDB
-                    website</a> and then enter your username and password here</p>
+                    website</a> and then enter your username and password here<br/>
+                For testing, you can take my test account<br/>
+                username: userualviv2000 password: fnaf2016</p>
                 <label className={scss.input}>
                     <input className={scss.input__field} type={"text"} {...register('username')}
                     />

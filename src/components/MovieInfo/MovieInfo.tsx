@@ -48,7 +48,7 @@ const MovieInfo: FC<IMovieInfo> = ({
     const addToWatchList = async () => {
         if (session_id && account_id) {
             const {data} = await accountService.addToWatchList("movie", id, true, session_id, account_id)
-            alert(data.status_message)
+            alert(data.status_message+'  Look at your profile on the bottom left')
         } else {
             alert('pls login')
         }
@@ -58,7 +58,7 @@ const MovieInfo: FC<IMovieInfo> = ({
     const markAsFavorite = async () => {
         if (session_id && account_id) {
             const {data} = await accountService.markAsFavorite("movie", id, true, session_id, account_id)
-            alert(data.status_message)
+            alert(data.status_message+'  Look at your profile on the bottom left')
         } else {
             alert('pls login')
         }
