@@ -6,6 +6,7 @@ import {LoginPage, MainPage, MovieDetailsPage, MoviesPage, ProfilePage, TvPage, 
 
 import './styles/index.sass';
 import {PrivateRoute} from "./router";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                             <ProfilePage/>
                         </PrivateRoute>
                     }/>
+                    <Route path={'*'} element={<NotFoundPage/>}/>
                 </Route>
             </Routes>
         </div>
