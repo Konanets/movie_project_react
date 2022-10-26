@@ -7,7 +7,7 @@ import {IMovie, IMoviesService, IVideos} from "../interfaces";
 const movieService = {
     getAll: (page: number = 1, sortBy: string, genres: string): AxiosRes<IMoviesService> =>
         axiosInstance.get(_urls.discover + _urls.movie + '?page=' + page + '&sort_by=' + sortBy + '&with_genres='
-            + genres + '&primary_release_year=2022'),
+            + genres),
 
     getTrendingMovies: (): AxiosRes<IMoviesService> => axiosInstance.get(_urls.trending + _urls.movie + _urls.day),
 
